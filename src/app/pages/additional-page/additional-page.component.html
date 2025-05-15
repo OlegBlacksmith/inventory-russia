@@ -1,0 +1,32 @@
+<div *ngIf="content" class="additional-page" id="additional-page">
+  <div class="page-wrapper">
+    <div class="header-container">
+      <div class="logo-container">
+        <img [src]="content.icon" alt="{{content.icon.toString()}}">
+        <div class="divider"></div>
+      </div>
+      <h1>{{ content.title }}</h1>
+    </div>
+    <h3>Список услуг:</h3>
+    <div class="list">
+      <div class="item-w-bullit" *ngFor="let item of content.items" >
+        <div class="bullit"></div>
+        <p>{{ item }}</p>
+      </div>
+    </div>
+    <div class="button-container">
+      <app-back-button
+        [padding]="'14px 19px'"
+      >
+      </app-back-button>
+      <app-order-button
+        [buttonText]="'Оставить заявку'"
+        [borderRadius]="5"
+        [fontSize]="32"
+        [fontWeight]="600"
+        [padding]="'12px 40px'"
+        class="add-margin"
+      ></app-order-button>
+    </div>
+  </div>
+</div>

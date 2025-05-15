@@ -1,0 +1,55 @@
+<section id="app-contacts" class="app-contacts">
+  <app-page-header
+    [headerText]="'Контакты'"
+    [subHeaderText]=""
+  ></app-page-header>
+  <div class="cards-container">
+    <div class="card glass-card">
+      <h4>Центральный офис</h4>
+      <div class="divider"></div>
+      <div class="list">
+        <div class="item-w-icon">
+          <img src="/assets/icons/address.svg" alt="address">
+          <p><b>Адрес:</b> 108805, г. Москва, поселение Новофедоровское, кв-л 182, д. 303</p>
+        </div>
+        <div class="item-w-icon">
+          <img src="/assets/icons/phone.svg" alt="">
+          <p><b>Телефон:</b> 8 (495) 767-09-94</p>
+        </div>
+        <div class="item-w-icon">
+          <img src="/assets/icons/mail_pencil.svg" alt="">
+          <p><b>E-mail:</b> info&#64;inventory-russia.ru</p>
+        </div>
+      </div>
+    </div>
+    <div class="card glass-card">
+      <h4>Реквизиты</h4>
+      <div class="divider"></div>
+      <div class="list">
+        <p><b>ООО “Инвентаризация”</b></p>
+        <p><b>ОГРН:</b> 1117746363613</p>
+        <p><b>ИНН:</b> 7729682065</p>
+        <p><b>КПП:</b> 775101001</p>
+        <p><b>Р/С</b> 40702810700550001538</p>
+        <p><b>БИК</b> 044525411</p>
+        <p><b>БАНК</b> ФИЛИАЛ "ЦЕНТРАЛЬНЫЙ" БАНКА ВТБ (ПАО)</p>
+        <p><b>К/С</b> 30101810145250000411</p>
+      </div>
+    </div>
+  </div>
+  <div class="island-container">
+    <img src="/assets/pictures/islands/entires/forth_island.webp" alt="second_island">
+  </div>
+  <div class="footer-text">
+    <p>Благодарим за интерес проявленный к нашим услугам. </p>
+    <p class="margin">Нацелены на долговременное и взаимовыгодное сотрудничество!</p>
+    <app-order-button
+      [buttonText]="'Оставить заявку'"
+      [borderRadius]="5"
+      [fontSize]="32"
+      [fontWeight]="600"
+      [padding]="'15px 46px'"
+    ></app-order-button>
+  </div>
+
+</section>

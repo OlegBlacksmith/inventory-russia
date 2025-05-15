@@ -1,0 +1,76 @@
+@use 'card' as card;
+
+@include card.glass-card;
+
+.app-contacts{
+  position: relative;
+  min-height: 110vh;
+  min-width: 1416px;
+  margin-bottom: 160px;
+}
+
+.cards-container{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 48px;
+}
+
+.card{
+  font-family: 'Inter', sans-serif;
+  color: #303030;
+  padding: 20px 23px;
+  max-width: 465px;
+}
+
+.card h4{
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.divider{
+  height: 1px;
+  background-color: #303030;
+  margin: 11px 0 11px 0;
+}
+
+.list{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+p{
+  margin: 0;
+}
+
+.item-w-icon{
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  gap: 10px;
+}
+
+.item-w-icon p{
+  margin: 0;
+}
+
+.island-container{
+  position: absolute;
+  top: 20%;
+  left: 7%;
+  z-index: 1;
+}
+
+.footer-text{
+  margin-top: 700px;
+  font-size: 26px;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  color: white;
+  line-height: 160%;
+}
+
+.margin{
+  margin-bottom: 88px;
+}

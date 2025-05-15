@@ -1,0 +1,19 @@
+<div class="cards-container">
+  <div
+    *ngFor="let content of cardsContent, let i = index"
+    class="service-card glass-card"
+    [ngClass]="{'special-card': i === 0 || i === 3 }"
+  >
+    <div class="header-container">
+      <img [src]="content.iconPath" alt="card-icon">
+      <h4>{{content.cardHeader}}</h4>
+    </div>
+    <div class="divider"></div>
+    <div class="text-w-button">
+      <span>{{content.cardText}}</span>
+      <app-additional-button
+        [target]="content.cardType"
+      ></app-additional-button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<section class="app-greet" id="app-greet">
+  <div class="section-wrapper">
+    <div class="text-container">
+      <img src="/assets/pictures/objects/ostankino_full.webp" alt="ostankino">
+      <div class="main-text">
+        <h1>
+          ООО "Инвентаризация" —
+          Компания, проверенная временем
+        </h1>
+        <div class="main-take">
+          <img src="/assets/icons/left_olive_big.svg" alt="left-olive">
+          <span>ОСНОВАНА В 2011 ГОДУ</span>
+          <img class="right-olive" src="/assets/icons/left_olive_big.svg" alt="right-olive">
+        </div>
+        <div class="list">
+          <div class="list-item">
+            <img src="/assets/icons/left_olive_bullit.svg" alt="olive-bullit">
+            <span>
+              <b>Наша миссия</b> оперативно предоставлять исчерпывающую информацию
+              о фактическом состоянии инвентаризируемого имущества.
+            </span>
+          </div>
+          <div class="list-item">
+            <img src="/assets/icons/left_olive_bullit.svg" alt="olive-bullit">
+            <span>
+              <b>Работаем</b> по всей России.
+            </span>
+          </div>
+          <div class="list-item">
+            <img src="/assets/icons/left_olive_bullit.svg" alt="olive-bullit">
+            <span>
+              <b>Оказываем услуги по инвентаризации</b> активов для организаций всех форм
+              собственности и видов деятельности.
+            </span>
+          </div>
+        </div>
+        <app-order-button
+          [buttonText]="textButton"
+          [borderRadius]="5"
+          [fontSize]="32"
+          [fontWeight]="600"
+          [padding]="'15px 46px'"
+          class="add-margin"
+        ></app-order-button>
+      </div>
+    </div>
+    <div class="right-side">
+      <div class="logo-container">
+        <img class="moscow-city" src="/assets/pictures/objects/moscow_cityv2.webp" alt="moscow-city">
+        <div class="logo-divider"></div>
+        <img class="main-logo" src="/assets/pictures/logos/main_logo.webp" alt="main-logo">
+      </div>
+    </div>
+  </div>
+</section>

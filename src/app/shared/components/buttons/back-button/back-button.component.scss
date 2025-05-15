@@ -1,0 +1,15 @@
+.back-button {
+  position: relative;
+  overflow: hidden;
+  background-color: #939A8B;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  z-index: 2;
+  border-radius: 5px;
+}
+
+.back-button:hover{
+  background-color: #64695f;
+}
