@@ -1,22 +1,20 @@
 @mixin gold-button {
-  .gold-button {
-    position: relative;
-    overflow: hidden;
-    background-color: #AB8858;
-    font-family: 'Inter', sans-serif;
-    border-radius: 5px;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.5s ease;
-    z-index: 2;
-  }
+  position: relative;
+  overflow: hidden;
+  background-color: #AB8858;
+  font-family: 'Inter', sans-serif;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  z-index: 2;
 
-  .gold-button:hover{
+  &:hover {
     background-color: #906B45;
   }
 
-  .gold-button::before {
+  &::before {
     content: "";
     position: absolute;
     top: 0;
@@ -28,16 +26,14 @@
     transform: skewX(-30deg);
     animation: shimmer 3s infinite;
   }
-
-
-
-  @keyframes shimmer {
-    0% {
-      left: -50%;
-    }
-    100% {
-      left: 110%;
-    }
-  }
-
 }
+
+@keyframes shimmer {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 110%;
+  }
+}
+

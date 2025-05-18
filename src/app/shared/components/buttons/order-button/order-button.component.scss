@@ -1,8 +1,9 @@
 @use 'button' as button;
 
-@include button.gold-button;
+
 
 button {
+  @include button.gold-button;
   padding: 15px 46px;
   font-size: 32px;
   font-weight: 600;
