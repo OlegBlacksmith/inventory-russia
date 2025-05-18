@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { PageHeaderComponent } from '../../../components/page-header/page-header.component';
+import { PageHeaderComponent } from '../../../../shared/components/page-header/page-header.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 @Component({
   selector: 'app-clients',
   imports: [
-    PageHeaderComponent
+    PageHeaderComponent,
+    CarouselComponent
   ],
   templateUrl: './clients-section.component.html',
   styleUrl: './clients-section.component.scss'

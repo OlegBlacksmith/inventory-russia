@@ -1,1 +1,16 @@
-<p>coockie-bubble works!</p>
+<div class="coockie-overlay" *ngIf="isBubbleVisible">
+  <div class="coockie-container">
+    <div class="content-wrapper">
+      <img src="/assets/pictures/coockie.webp" alt="coockie">
+      <div class="text-wrapper">
+        <h4>Мы используем файлы cookie!</h4>
+        <p>
+          И обрабатываем персональные данные для улучшения работы сайта, аналитики и персонализации контента.
+          Продолжая использование сайта, <b>вы соглашаетесь</b> с нашей <a href="">Политикой конфиденциальности</a> и
+          <a href="">Политикой обработки персональных данных</a>.
+        </p>
+      </div>
+    </div>
+    <button class="confirm-button" (click)="closeBubble()">Согласен</button>
+  </div>
+</div>

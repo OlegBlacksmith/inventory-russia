@@ -1,4 +1,7 @@
-<div *ngIf="content" class="additional-page" id="additional-page">
+<div *ngIf="content" class="additional-page add-page" id="additional-page">
+  <img class="one" src="/assets/textures/service_cloud.webp" alt="cloud-1">
+  <img class="two" src="/assets/textures/clients_cloud.webp" alt="cloud-2">
+  <img class="three" src="/assets/textures/service_cloud.webp" alt="cloud-3">
   <div class="page-wrapper">
     <div class="header-container">
       <div class="logo-container">
@@ -16,16 +19,13 @@
     </div>
     <div class="button-container">
       <app-back-button
-        [padding]="'14px 19px'"
+        [padding]="'18px 19px'"
       >
       </app-back-button>
       <app-order-button
         [buttonText]="'Оставить заявку'"
-        [borderRadius]="5"
-        [fontSize]="32"
-        [fontWeight]="600"
-        [padding]="'12px 40px'"
         class="add-margin"
+        [opensDialog]="true"
       ></app-order-button>
     </div>
   </div>

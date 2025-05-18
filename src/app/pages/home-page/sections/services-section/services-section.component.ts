@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { PageHeaderComponent } from '../../../components/page-header/page-header.component';
-import { ServiceCardComponent } from '../../../components/service-card/service-card.component';
+import { PageHeaderComponent } from '../../../../shared/components/page-header/page-header.component';
+import { ServiceCardComponent } from './components/service-card/service-card.component';
 
 @Component({
   selector: 'app-services',

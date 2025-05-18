@@ -10,5 +10,4 @@ import { OrderButtonComponent } from '../../../../shared/components/buttons/orde
   styleUrl: './greet-section.component.scss'
 })
 export class GreetSectionComponent {
-  textButton = "Оставить заявку"
 }

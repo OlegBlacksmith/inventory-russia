@@ -1,39 +1,9 @@
+@use 'button' as button;
+
+@include button.gold-button;
+
 button {
-  position: relative;
-  overflow: hidden;
   padding: 15px 46px;
-  background-color: #AB8858;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.5s ease;
-  z-index: 2;
-}
-
-button:hover{
-  background-color: #906B45;
-}
-
-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -60%;
-  width: 10%;
-  height: 100%;
-  background: #f4e2c988 50%;
-  filter: blur(3px);
-  transform: skewX(-30deg);
-  animation: shimmer 3s infinite;
-}
-
-
-
-@keyframes shimmer {
-  0% {
-    left: -50%;
-  }
-  100% {
-    left: 110%;
-  }
+  font-size: 32px;
+  font-weight: 600;
 }

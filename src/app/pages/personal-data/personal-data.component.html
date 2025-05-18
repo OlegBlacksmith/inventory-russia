@@ -1,1 +1,22 @@
-<p>personal-data works!</p>
+<div class="personal-data" id="personal-data">
+  <div class="page-wrapper" *ngFor="let content of contents" >
+    <app-page-header
+      [headerText]="'Обработка персональных данных'"
+    ></app-page-header>
+    <div class="list">
+      <div class="paragraph" *ngFor="let par of content.paragraphs">
+        <p class="main-str">{{par.key}}. {{par.p}}</p>
+        <div class="item-w-bullit" *ngFor="let b of par.bullits">
+          <div class="bullit"></div>
+          <p>{{b}}</p>
+        </div>
+      </div>
+      <div></div>
+    </div>
+    <div class="button-container">
+      <app-back-button
+        [padding]="'14px 19px'"
+      >
+      </app-back-button>
+    </div>
+</div>

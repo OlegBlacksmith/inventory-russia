@@ -11,3 +11,20 @@
   left: 7%;
   z-index: 1;
 }
+
+
+.one, .two, .three{
+  position: absolute;
+  opacity: 0.8;
+}
+
+.one{
+  left: -8%;
+  top: 15%;
+  transform: rotate(-5deg);
+}
+
+
+.three{
+  left: 70%;
+}

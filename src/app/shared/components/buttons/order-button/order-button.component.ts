@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { OrderModalService } from '../../../../services/order-modal.service';
 
 @Component({
   selector: 'app-order-button',
@@ -8,8 +9,16 @@ import { Component, Input } from '@angular/core';
 })
 export class OrderButtonComponent {
   @Input() buttonText?: string;
-  @Input() fontSize?: number;
-  @Input() fontWeight?: number;
-  @Input() borderRadius?: number;
-  @Input() padding?: string;
+
+  @Input() opensDialog: boolean = false;
+
+  constructor(private dialogService: OrderModalService){}
+
+  isShowOrderDialog: boolean = false;
+
+  onClick() {
+    if (this.opensDialog) {
+      this.dialogService.show();
+    }
+  }
 }

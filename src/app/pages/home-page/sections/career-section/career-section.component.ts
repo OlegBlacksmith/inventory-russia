@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { PageHeaderComponent } from '../../../components/page-header/page-header.component';
-import { OrderButtonComponent } from '../../../../shared/components/buttons/order-button/order-button.component';
+import { PageHeaderComponent } from '../../../../shared/components/page-header/page-header.component';
+import { CareerButtonComponent } from './components/career-button/career-button.component';
 
 @Component({
   selector: 'app-career',
   imports: [
     PageHeaderComponent,
-    OrderButtonComponent
+    CareerButtonComponent
   ],
   templateUrl: './career-section.component.html',
   styleUrl: './career-section.component.scss'

@@ -1,0 +1,22 @@
+@use 'page' as page;
+
+@include page.add-page;
+
+.page-wrapper {
+  text-align: center;
+  margin-top: 100px;
+  h1 {
+    font-size: 100px;
+    color: #ff6b6b;
+  }
+  p {
+    font-size: 24px;
+  }
+  a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: underline;
+    color: #007bff;
+    cursor: pointer;
+  }
+}

@@ -1,1 +1,37 @@
-<p>career-dialog works!</p>
+<div class="modal-career-overlay" @fadeInOut *ngIf="visible" (click)="onClose()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="close-button" (click)="onClose()">
+      <img src="/assets/icons/close.svg" alt="close">
+    </button>
+    <div class="custom-body">
+      <h1>Запускаем заявку в производство!</h1>
+      <div class="input-container">
+        <input type="text" pSize="small" placeholder="Укажите ваше имя" />
+        <input type="text" pSize="small" placeholder="Укажите номер телефона " />
+        <input type="text" pSize="small" placeholder="Укажите E-mail" />
+      </div>
+      <div class="select-container">
+        <p>Когда вам перезвонить?</p>
+        <select name="call-time" id="call-time-select">
+          <option value="soon">В ближайшее время</option>
+          <option value="duringTheDay">В течение дня</option>
+          <option value="onlyPost">Предпочитаю почту</option>
+        </select>
+      </div>
+      <div class="privacy">
+        <input type="radio" id="privacy" name="privacy"/>
+        <p>
+          Нажимая “Отправить”, вы подтверждаете, что ознакомлены с <a routerLink="/privacy-policy">“Политикой конфиденциальности”</a>
+          и правилиами <a routerLink="/personal-data">“Обработки персональных данных”</a>.
+        </p>
+      </div>
+      <div class="button-clip">
+        <img src="/assets/icons/clip.svg" alt="clip">
+        <p>Прикрепите свое резюме в форматах .docx(word) или .pdf </p>
+      </div>
+      <div class="button-container">
+        <button class="send-button gold-button">Отправить</button>
+      </div>
+    </div>
+  </div>
+</div>

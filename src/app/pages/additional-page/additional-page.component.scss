@@ -1,16 +1,10 @@
-.additional-page{
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: linear-gradient(
-     to bottom,
-    #BAF6FD,
-    #DCD29C,
-  );
-  color: #303030;
-  font-family: 'Inter', sans-serif;
-  padding-bottom: 80px;
+@use 'page' as page;
+
+@include page.add-page;
+
+.additional-page {
+  position: relative;
+  overflow: hidden;
 }
 
 h3{
@@ -72,4 +66,24 @@ h3{
   gap: 14px;
   bottom: 0;
   right: 0;
+}
+
+.one, .two, .three{
+  position: absolute;
+  opacity: 0.7;
+}
+
+.one{
+  bottom: 25%;
+  left: 5%;
+  transform: rotate(25deg);
+}
+
+.two{
+  top: 10%;
+}
+
+.three{
+  right: 0;
+  top: -5%;
 }

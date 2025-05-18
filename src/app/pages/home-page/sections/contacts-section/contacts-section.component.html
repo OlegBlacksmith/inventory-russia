@@ -1,4 +1,5 @@
 <section id="app-contacts" class="app-contacts">
+  <img class="stars" src="/assets/textures/stars.webp" alt="stars">
   <app-page-header
     [headerText]="'Контакты'"
     [subHeaderText]=""
@@ -45,10 +46,7 @@
     <p class="margin">Нацелены на долговременное и взаимовыгодное сотрудничество!</p>
     <app-order-button
       [buttonText]="'Оставить заявку'"
-      [borderRadius]="5"
-      [fontSize]="32"
-      [fontWeight]="600"
-      [padding]="'15px 46px'"
+      [opensDialog]="true"
     ></app-order-button>
   </div>
 

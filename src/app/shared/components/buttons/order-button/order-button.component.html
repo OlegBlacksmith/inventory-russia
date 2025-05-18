@@ -1,8 +1,6 @@
 <button
-  [style.borderRadius.px]="borderRadius"
-  [style.fontSize.px]="fontSize"
-  [style.fontWeight]="fontWeight"
-  [style.padding]="padding"
+  (click)="onClick()"
+  class="gold-button"
 >
   {{buttonText}}
 </button>

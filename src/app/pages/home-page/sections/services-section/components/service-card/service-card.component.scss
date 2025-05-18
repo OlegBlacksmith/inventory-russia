@@ -1,0 +1,60 @@
+@use 'card' as card;
+
+@include card.glass-card;
+
+.cards-container{
+  display: flex;
+  gap: 51px;
+  margin-top: 46px;
+  position: relative;
+  z-index: 2;
+}
+
+.service-card {
+  width: 302px;
+  height: 330px;
+  padding: 25px;
+  border-radius: 10px;
+  color: #303030;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+
+.header-container{
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.service-card h4{
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.service-card span{
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  font-style: normal;
+}
+
+.divider{
+  height: 1px;
+  background-color: #303030;
+  margin: 11px 0 11px 0;
+}
+
+.special-card{
+  margin-top: 146px;
+}
+
+.text-w-button{
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+  justify-content: space-between;
+}
+
+
+

@@ -1,0 +1,10 @@
+@use 'button' as button;
+
+@include button.gold-button;
+
+.career-button {
+  font-size: 32px;
+  font-weight: 600;
+  padding: 15px 46px;
+}
+
