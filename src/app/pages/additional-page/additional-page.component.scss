@@ -1,8 +1,7 @@
 @use 'page' as page;
 
-@include page.add-page;
-
 .additional-page {
+  @include page.add-page;
   position: relative;
   overflow: hidden;
 }

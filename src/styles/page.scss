@@ -1,5 +1,4 @@
 @mixin add-page {
-  .add-page{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -12,6 +11,5 @@
   color: #303030;
   font-family: 'Inter', sans-serif;
   padding-bottom: 80px;
-}
 }
 

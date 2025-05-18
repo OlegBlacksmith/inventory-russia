@@ -1,7 +1,5 @@
 @use 'card' as card;
 
-@include card.glass-card;
-
 .cards-container{
   display: flex;
   gap: 51px;
@@ -11,6 +9,7 @@
 }
 
 .service-card {
+  @include card.glass-card;
   width: 302px;
   height: 330px;
   padding: 25px;

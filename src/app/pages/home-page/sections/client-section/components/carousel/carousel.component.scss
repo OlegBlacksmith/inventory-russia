@@ -1,7 +1,5 @@
 @use 'card' as card;
 
-@include card.glass-card;
-
 .carousel-wrapper {
   position: relative;
   width: 1410px; // или другое значение под твой дизайн
@@ -12,6 +10,7 @@
 }
 
 .image-wrapper {
+  @include card.glass-card;
   display: flex;
   justify-content: center;
   align-items: center;
