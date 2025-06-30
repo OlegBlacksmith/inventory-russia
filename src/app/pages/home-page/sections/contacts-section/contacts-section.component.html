@@ -1,5 +1,5 @@
+
 <section id="app-contacts" class="app-contacts">
-  <img class="stars" src="/assets/textures/stars.webp" alt="stars">
   <app-page-header
     [headerText]="'Контакты'"
     [subHeaderText]=""
@@ -23,6 +23,11 @@
         </div>
       </div>
     </div>
+
+    <div class="island-container1" *ngIf="!(showIsland$ | async)">
+      <img src="/assets/pictures/islands/halves/island3.1.webp" alt="second_island">
+    </div>
+
     <div class="card glass-card">
       <h4>Реквизиты</h4>
       <div class="divider"></div>
@@ -38,7 +43,12 @@
       </div>
     </div>
   </div>
-  <div class="island-container">
+
+  <div class="island-container2" *ngIf="!(showIsland$ | async)">
+    <img src="/assets/pictures/islands/halves/island3.2.webp" alt="second_island">
+  </div>
+
+  <div class="island-container" *ngIf="showIsland$ | async">
     <img src="/assets/pictures/islands/entires/forth_island.webp" alt="second_island">
   </div>
   <div class="footer-text">
