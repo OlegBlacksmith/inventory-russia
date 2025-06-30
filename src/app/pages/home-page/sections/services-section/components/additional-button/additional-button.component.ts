@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
   selector: 'app-additional-button',
   imports: [],
   templateUrl: './additional-button.component.html',
-  styleUrl: './additional-button.component.scss'
+  styleUrl: './additional-button.component.css'
 })
 export class AdditionalButtonComponent {
   @Input() target!: string;
