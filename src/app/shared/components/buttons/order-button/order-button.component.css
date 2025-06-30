@@ -1,0 +1,13 @@
+button {
+  padding: 15px 46px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+@media (min-width: 375px) and (max-width: 770px){
+  button {
+    padding: 11px 30px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
