@@ -12,7 +12,7 @@ import { PageHeaderComponent } from '../../shared/components/page-header/page-he
     NgFor
   ],
   templateUrl: './personal-data.component.html',
-  styleUrl: './personal-data.component.scss'
+  styleUrl: './personal-data.component.css'
 })
 export class PersonalDataComponent {
   contents = personalDataContent;
