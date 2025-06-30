@@ -6,6 +6,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { OrderDialogComponent } from './shared/components/dialogs/order-dialog/order-dialog.component';
 import { CareerDialogComponent } from './shared/components/dialogs/career-dialog/career-dialog.component';
 import { CoockieBubbleComponent } from './shared/components/coockie-bubble/coockie-bubble.component';
+import { FabMenuComponent } from "./shared/components/fab-menu/fab-menu.component";
 
 @Component({
   selector: 'app-root',
@@ -15,10 +16,11 @@ import { CoockieBubbleComponent } from './shared/components/coockie-bubble/coock
     FooterComponent,
     OrderDialogComponent,
     CareerDialogComponent,
-    CoockieBubbleComponent
-  ],
+    CoockieBubbleComponent,
+    FabMenuComponent
+],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'инвентаризация';
