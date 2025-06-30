@@ -1,0 +1,108 @@
+.additional-page {
+  position: relative;
+  overflow: hidden;
+}
+
+h3{
+  font-size: 32px;
+  margin-bottom: 28px;
+}
+
+.page-wrapper{
+  position: relative;
+  width: 1416px;
+  padding-top: 64px;
+}
+
+.header-container{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 14px;
+}
+
+.header-container h1{
+  font-size: 48px;
+}
+
+.divider{
+  width: auto;
+  height: 1px;
+  background-color: #303030;
+}
+
+.list{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 200px;
+}
+
+.item-w-bullit{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.item-w-bullit p{
+  font-size: 22px;
+}
+
+.bullit{
+  width: 4px;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #303030;
+  flex-shrink: 0;
+}
+
+.button-container{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  bottom: 0;
+  right: 0;
+}
+
+.one, .two, .three{
+  position: absolute;
+  opacity: 0.7;
+}
+
+.one{
+  bottom: 25%;
+  left: 5%;
+  transform: rotate(25deg);
+}
+
+.two{
+  top: 10%;
+}
+
+.three{
+  right: 0;
+  top: -5%;
+}
+
+@media (min-width: 375px) and (max-width: 770px){
+  .header-container h1{
+    font-size: 35px;
+    font-family: "PT Sans Narrow", sans-serif;
+  }
+
+  h3{
+    font-size: 24px;
+    margin-bottom: 28px;
+  }
+
+  .page-wrapper{
+    position: relative;
+    width: 100%;
+    padding: 64px 20px 0 20px;
+  }
+
+  .item-w-bullit p{
+    font-size: 14px;
+  }
+}
