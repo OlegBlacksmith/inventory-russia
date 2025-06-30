@@ -1,0 +1,166 @@
+.app-contacts{
+  position: relative;
+  z-index: 1;
+  min-height: 110vh;
+  min-width: 1416px;
+  max-width: 1416px;
+  margin-bottom: 160px;
+}
+
+.app-contacts::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 99vw;
+  height: 700px;
+  background-image: url('/assets/textures/starsexp.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cards-container{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 48px;
+}
+
+.card{
+  font-family: 'Inter', sans-serif;
+  color: #303030;
+  padding: 20px 23px;
+  max-width: 465px;
+}
+
+.card h4{
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.divider{
+  height: 1px;
+  background-color: #303030;
+  margin: 11px 0 11px 0;
+}
+
+.list{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+p{
+  margin: 0;
+}
+
+.item-w-icon{
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  gap: 10px;
+}
+
+.item-w-icon p{
+  margin: 0;
+}
+
+.island-container{
+  position: absolute;
+  top: 13%;
+  left: 7%;
+  z-index: 1;
+}
+
+.footer-text{
+  margin-top: 700px;
+  font-size: 26px;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  color: white;
+  line-height: 160%;
+}
+
+.margin{
+  margin-bottom: 88px;
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 0;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+@media (min-width: 375px) and (max-width: 770px){
+  .app-contacts{
+    position: relative;
+    min-width: 100%;
+    margin-bottom: 0;
+  }
+
+  .app-contacts::before {
+    top: -2%;
+    width: 99vw;
+    height: 350px;
+  }
+
+  .cards-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: unset;
+    margin-top: 48px;
+    gap: 20px;
+  }
+
+  .card{
+    padding: 20px 23px;
+    margin: 0 20px 0 20px;
+  }
+
+  .card h4{
+    font-size: 18px;
+  }
+
+  .item-w-icon{
+    font-size: 16px;
+    gap: 10px;
+  }
+
+  .island-container1,
+  .island-container2{
+    display: flex;
+    width: 100%;
+  }
+
+  .island-container1{
+    justify-content: flex-start;
+  }
+
+  .island-container2{
+    justify-content: flex-end;
+  }
+
+  .island-container1 img,
+  .island-container2 img{
+    width: 360px;
+  }
+
+  .footer-text{
+    margin: 150px 0 0 0;
+    font-size: 16px;
+    padding: 0 20px 120px 20px;
+  }
+
+  .margin{
+    margin: 20px 0 88px 0;
+  }
+}
