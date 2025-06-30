@@ -1,0 +1,52 @@
+.app-services{
+  position: relative;
+  min-height: 120vh;
+  max-width: 1416px;
+  margin-bottom: 160px;
+}
+
+.island-container{
+  position: absolute;
+  top: 24%;
+  left: 5%;
+  z-index: 1;
+}
+
+
+.one, .two, .three{
+  position: absolute;
+  opacity: 0.8;
+}
+
+.one{
+  left: -8%;
+  top: 15%;
+  transform: rotate(-5deg);
+}
+
+
+.three{
+  left: 70%;
+}
+
+@media (min-width: 375px) and (max-width: 770px){
+  .app-services{
+    position: relative;
+    min-height: max-content;
+    max-width: 100%;
+    margin-bottom: 160px;
+    overflow: hidden;
+  }
+
+  .one{
+    left: -8%;
+    top: 15%;
+    transform: rotate(-5deg);
+  }
+
+
+  .three{
+    left: -8%;
+    top: 50%;
+  }
+}
