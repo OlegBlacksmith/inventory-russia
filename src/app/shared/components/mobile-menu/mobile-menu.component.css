@@ -1,0 +1,48 @@
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease-in-out;
+  z-index: 9999;
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+.menu-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  height: 100%;
+  align-items: center;
+  background-color: #AB8858;
+  justify-content: space-between;
+}
+
+.close-btn {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+}
+
+nav{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+nav a {
+  font-size: 30px;
+  color: #303030;
+  text-decoration: none;
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
