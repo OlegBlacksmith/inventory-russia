@@ -1,0 +1,91 @@
+.personal-data{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(
+     to bottom,
+    #1F2147,
+    #242434
+  );
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  padding-bottom: 80px;
+}
+
+.personal-data::before {
+  content: '';
+  position: absolute;
+  top: 13%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 99vw;
+  height: 700px;
+  background-image: url('/assets/textures/starsexp.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.page-wrapper{
+  position: relative;
+  width: 1416px;
+  padding-top: 64px;
+}
+
+.list{
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  font-size: 22px;
+  margin-top: 40px;
+}
+
+.main-str{
+  margin-bottom: 15px;
+}
+
+.item-w-bullit{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: 22px;
+}
+
+.item-w-bullit .bullit{
+  width: 4px;
+  height: 4px;
+  background-color: white;
+  border-radius: 6px;
+}
+
+.button-container{
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@media (min-width: 375px) and (max-width: 770px){
+  .page-wrapper{
+    width: 100%;
+  }
+
+  .list{
+    font-size: 14px;
+    padding: 20px;
+  }
+
+  .button-container{
+    padding: 20px;
+  }
+
+  .personal-data::before {
+    top: 12%;
+    width: 99vw;
+    height: 350px;
+  }
+}
