@@ -6,11 +6,24 @@
     [headerText]="'Наши клиенты'"
     [subHeaderText]="'Довольны результатом – рекомендуют нас!'"
   ></app-page-header>
+
   <div class="margint-top">
     <app-carousel></app-carousel>
   </div>
 
-  <div class="island-container">
+  <div class="island-container1" *ngIf="!(showIsland$ | async)">
+    <img src="/assets/pictures/islands/halves/island2.1.webp" alt="first_island">
+  </div>
+
+  <div class="margint-top">
+    <app-gratitude-carousel></app-gratitude-carousel>
+  </div>
+
+  <div class="island-container2" *ngIf="!(showIsland$ | async)">
+    <img src="/assets/pictures/islands/halves/island2.2.webp" alt="first_island">
+  </div>
+
+  <div class="island-container" *ngIf="showIsland$ | async">
     <img src="/assets/pictures/islands/entires/second_island.webp" alt="second_island">
   </div>
 </section>
