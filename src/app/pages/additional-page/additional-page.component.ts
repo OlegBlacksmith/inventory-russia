@@ -14,7 +14,7 @@ import { NgFor, NgIf } from '@angular/common';
     NgFor
   ],
   templateUrl: './additional-page.component.html',
-  styleUrl: './additional-page.component.scss'
+  styleUrl: './additional-page.component.css'
 })
 export class AdditionalPageComponent {
   type: string | null = null;
