@@ -17,7 +17,7 @@ import { RouterLink } from '@angular/router';
     NgIf
   ],
   templateUrl: './career-dialog.component.html',
-  styleUrl: './career-dialog.component.scss',
+  styleUrl: './career-dialog.component.css',
   animations: [
     trigger('fadeInOut', [
       transition(':enter', [
