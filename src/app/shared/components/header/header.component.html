@@ -1,7 +1,9 @@
 <header class="app-header" id="app-header">
   <div class="content-wrapper">
-    <img src="/assets/pictures/logos/header_logo.webp" alt="logo-header">
-    <div class="nav-menu">
+    <a routerLink="/">
+      <img class="logo" src="/assets/pictures/logos/header_logo.webp" alt="logo-header">
+    </a>
+    <div class="nav-menu" *ngIf="showNavMenu$ | async">
       <div class="nav-item">
         <div class="divider"></div>
         <a href="#app-services">Услуги</a>
@@ -27,5 +29,21 @@
         <a href="mailto:info@inventory-russia.ru">info&#64;inventory-russia.ru</a>
       </div>
     </div>
+    <button class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle menu" *ngIf="isMobile$ | async">
+      <ng-container *ngIf="!(isMenuOpen$ | async); else closeIcon">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="white" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </ng-container>
+      <ng-template #closeIcon>
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M6 6l12 12M6 18L18 6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </ng-template>
+    </button>
   </div>
+
+  <app-mobile-menu
+    *ngIf="isMobile$ | async"
+  ></app-mobile-menu>
 </header>
