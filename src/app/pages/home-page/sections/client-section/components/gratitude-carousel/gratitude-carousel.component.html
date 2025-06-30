@@ -1,0 +1,14 @@
+<div class="carousel-wrapper">
+  <p-carousel
+    [value]="images"
+    [numVisible]="numVisible"
+    [numScroll]="1"
+    [circular]="true"
+  >
+    <ng-template let-image #item>
+      <div class="image-wrapper">
+        <img [src]="image" alt="Image" class="carousel-image" />
+      </div>
+    </ng-template>
+  </p-carousel>
+</div>
