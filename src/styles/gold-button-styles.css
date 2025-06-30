@@ -1,0 +1,38 @@
+.gold-button {
+  position: relative;
+  overflow: hidden;
+  background-color: #AB8858;
+  font-family: 'Inter', sans-serif;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  z-index: 999;
+}
+
+.gold-button:hover {
+  background-color: #906B45;
+}
+
+.gold-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 10%;
+  height: 100%;
+  background: #f4e2c988 50%;
+  filter: blur(3px);
+  transform: skewX(-30deg);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 110%;
+  }
+}

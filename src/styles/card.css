@@ -1,0 +1,26 @@
+.glass-card {
+  position: relative;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: -5px 5px 5px 0 rgb(67 67 67 / 30%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/textures/glass_texture.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.glass-card > * {
+  position: relative;
+  z-index: 1;
+}
