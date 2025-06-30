@@ -19,7 +19,7 @@ import { RouterLink } from '@angular/router';
     NgIf
   ],
   templateUrl: './order-dialog.component.html',
-  styleUrl: './order-dialog.component.scss',
+  styleUrl: './order-dialog.component.css',
   animations: [
     trigger('fadeInOut', [
       transition(':enter', [
