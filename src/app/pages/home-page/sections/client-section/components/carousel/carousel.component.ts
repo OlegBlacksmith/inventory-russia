@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
+import { ScreenService } from '../../../../../../services/screen.service';
+import { map, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-carousel',
@@ -7,9 +9,11 @@ import { CarouselModule } from 'primeng/carousel';
     CarouselModule
   ],
   templateUrl: './carousel.component.html',
-  styleUrl: './carousel.component.scss'
+  styleUrl: './carousel.component.css'
 })
-export class CarouselComponent {
+export class CarouselComponent implements OnInit, OnDestroy {
+  numVisible = 5;
+
   images: string[] = [
     '/assets/pictures/partners/bask.svg',
     '/assets/pictures/partners/berges.svg',
@@ -20,21 +24,19 @@ export class CarouselComponent {
     '/assets/pictures/partners/fashion_hub.svg',
   ];
 
-  // responsiveOptions = [
-  //   {
-  //     breakpoint: '1024px',
-  //     numVisible: 5,
-  //     numScroll: 1
-  //   },
-  //   {
-  //     breakpoint: '768px',
-  //     numVisible: 2,
-  //     numScroll: 1
-  //   },
-  //   {
-  //     breakpoint: '560px',
-  //     numVisible: 1,
-  //     numScroll: 1
-  //   }
-  // ];
+  private destroy$ = new Subject<void>();
+  private screenService = inject(ScreenService);
+
+  ngOnInit() {
+    this.screenService.isMobile$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((isMobile) => {
+        this.numVisible = isMobile ? 3 : 5;
+      });
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 }
