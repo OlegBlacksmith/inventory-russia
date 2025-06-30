@@ -15,7 +15,7 @@ import { ContactsSectionComponent } from './sections/contacts-section/contacts-s
     ContactsSectionComponent
   ],
   templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.scss'
+  styleUrl: './home-page.component.css'
 })
 export class HomePageComponent {
 
