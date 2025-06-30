@@ -1,0 +1,258 @@
+/* * {
+  outline: 1px solid red;
+} */
+
+.app-greet{
+  height: 100vh;
+  width: 1416px;
+  margin-bottom: 160px;
+}
+
+.section-wrapper{
+  position: relative;
+  display: flex;
+  /* outline: 1px solid red; */
+}
+
+.text-container{
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  width: 817px;
+  z-index: 2;
+  box-shadow: -7px 7px 7px rgba(0, 0, 0, 0.12);
+  padding: 80px 0 40px 10px;
+  border-radius: 5px;
+}
+
+.text-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 5px;
+}
+
+.main-text h1{
+  font-size: 40px;
+  font-weight: 600;
+  margin: 160px 0 41px 0;
+  color: #303030;
+}
+
+.main-take{
+  display: flex;
+  align-items: center;
+  margin-bottom: 57px;
+}
+
+.main-take span{
+  color: #AB8858;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.right-olive{
+  transform: scaleX(-1);
+}
+
+.list{
+  display: flex;
+  flex-direction: column;
+  gap: 33px;
+  margin-bottom: 84px;
+}
+
+.list-item{
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.list-item span{
+  font-size: 24px;
+  color: #303030;
+}
+
+.right-side{
+  position: absolute;
+  right: -111px;
+  bottom: 0;
+}
+
+.logo-container{
+  /* outline: 1px solid red; */
+  position: relative;
+  width: 727px;
+  height: 727px;
+  z-index: 2;
+}
+
+.moscow-city,
+.logo-divider,
+.main-logo{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.moscow-city{
+  width: 635px;
+  height: 635px;
+  opacity: 0.7;
+}
+
+.logo-divider{
+  position: relative;
+  width: 650px;
+  height: 650px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.12);
+  transform: translate(-50%, -50%) rotate(56deg);
+  transform-origin: center center;
+  border-radius: 6px;
+}
+
+.logo-divider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 6px;
+}
+
+.add-margin{
+  margin-left: 35px;
+}
+
+@media (min-width: 375px) and (max-width: 770px){
+  .ostankino{
+    position: absolute;
+    left: -56px;
+    bottom: 0;
+    z-index: -1;
+    height: 830px;
+  }
+
+  .section-wrapper{
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .app-greet{
+    height: 140vh;
+    min-width: 100%;
+    max-width: 100%;
+    margin-bottom: 160px;
+    overflow: hidden;
+  }
+
+  .section-wrapper{
+    width: 375px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .text-container{
+    /* position: relative;
+    z-index: 3; */
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .text-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  .main-text h1{
+    font-size: 24px;
+    margin: 45px 0 40px 20px;
+  }
+
+  .main-take{
+    margin: 0 0 22px 20px;
+  }
+
+  .main-take span{
+    font-size: 20px;
+  }
+
+  .list-item{
+    margin: 0 15px 0 20px;
+  }
+
+  .list-item span{
+    font-size: 16px;
+  }
+
+  .list{
+    margin-bottom: 250px;
+    gap: 28px;
+  }
+
+  .right-side{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  .logo-container{
+    width: 100px;
+    height: 100px;
+    /* pointer-events: none; */
+    z-index: 2;
+  }
+
+  .moscow-city{
+    width: 150px;
+    height: 150px;
+  }
+
+  .logo-divider{
+    width: 150px;
+    height: 150px;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+  }
+
+  .main-logo{
+    width: 140px;
+    height: 140px;
+  }
+
+  .moscow-city,
+  .logo-divider,
+  .main-logo{
+    top: -119%;
+    left: -84%;
+  }
+
+  .right-olive,
+  .left-olive{
+    width: 23px;
+    height: 26px;
+  }
+
+  .add-margin{
+    margin-left: 65px;
+  }
+}
