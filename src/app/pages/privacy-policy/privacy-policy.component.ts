@@ -5,6 +5,7 @@ import { privacyPolicyContent } from '../../shared/data/privacy-policy-content';
 import { NgFor } from '@angular/common';
 
 @Component({
+  standalone: true,
   selector: 'app-privacy-policy',
   imports: [
     BackButtonComponent,
@@ -12,8 +13,9 @@ import { NgFor } from '@angular/common';
     NgFor
   ],
   templateUrl: './privacy-policy.component.html',
-  styleUrl: './privacy-policy.component.scss'
+  styleUrl: './privacy-policy.component.css'
 })
 export class PrivacyPolicyComponent {
   contents = privacyPolicyContent;
 }
+console.log(privacyPolicyContent);
