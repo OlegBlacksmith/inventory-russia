@@ -5,7 +5,7 @@ import { CareerModalService } from '../../../../../../services/career-modal.serv
   selector: 'app-career-button',
   imports: [],
   templateUrl: './career-button.component.html',
-  styleUrl: './career-button.component.scss'
+  styleUrl: './career-button.component.css'
 })
 export class CareerButtonComponent {
   @Input() opensDialog: boolean = false;
