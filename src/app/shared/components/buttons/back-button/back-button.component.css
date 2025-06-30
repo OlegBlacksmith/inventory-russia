@@ -1,0 +1,26 @@
+.back-button {
+  position: relative;
+  overflow: hidden;
+  background-color: #939A8B;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  z-index: 2;
+  border-radius: 5px;
+  padding: 18px 19px;
+}
+
+.back-button:hover{
+  background-color: #64695f;
+}
+
+@media (min-width: 375px) and (max-width: 770px){
+  .back-button{
+    padding: 11px 16px;
+  }
+
+  .back-button img{
+    height: 22px;
+  }
+}
