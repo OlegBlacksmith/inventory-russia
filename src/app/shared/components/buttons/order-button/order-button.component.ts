@@ -5,7 +5,7 @@ import { OrderModalService } from '../../../../services/order-modal.service';
   selector: 'app-order-button',
   imports: [],
   templateUrl: './order-button.component.html',
-  styleUrl: './order-button.component.scss'
+  styleUrl: './order-button.component.css'
 })
 export class OrderButtonComponent {
   @Input() buttonText?: string;
