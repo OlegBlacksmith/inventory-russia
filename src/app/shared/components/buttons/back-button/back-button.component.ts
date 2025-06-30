@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
   selector: 'app-back-button',
   imports: [],
   templateUrl: './back-button.component.html',
-  styleUrl: './back-button.component.scss'
+  styleUrl: './back-button.component.css'
 })
 export class BackButtonComponent {
   @Input() padding?: string;
