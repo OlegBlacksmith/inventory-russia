@@ -1,18 +1,64 @@
 <div class="cards-container">
-  <div
-    *ngFor="let content of cardsContent, let i = index"
-    class="service-card glass-card"
-    [ngClass]="{'special-card': i === 0 || i === 3 }"
-  >
+  <div class="service-card glass-card special-card">
     <div class="header-container">
-      <img [src]="content.iconPath" alt="card-icon">
-      <h4>{{content.cardHeader}}</h4>
+      <img [src]="cardsContent[0].iconPath" alt="card-icon">
+      <h4>{{ cardsContent[0].cardHeader }}</h4>
     </div>
     <div class="divider"></div>
     <div class="text-w-button">
-      <span>{{content.cardText}}</span>
+      <span>{{cardsContent[0].cardText}}</span>
       <app-additional-button
-        [target]="content.cardType"
+        [target]="cardsContent[0].cardType"
+      ></app-additional-button>
+    </div>
+  </div>
+
+  <div class="island-container1" *ngIf="!(showIsland$ | async)">
+    <img src="/assets/pictures/islands/halves/island1.1.webp" alt="islnad1">
+  </div>
+
+  <div class="service-card glass-card">
+    <div class="header-container">
+      <img [src]="cardsContent[1].iconPath" alt="card-icon">
+      <h4>{{cardsContent[1].cardHeader}}</h4>
+    </div>
+    <div class="divider"></div>
+    <div class="text-w-button">
+      <span>{{cardsContent[1].cardText}}</span>
+      <app-additional-button
+        [target]="cardsContent[1].cardType"
+      ></app-additional-button>
+    </div>
+  </div>
+
+  <div class="service-card glass-card">
+    <div class="header-container">
+      <img [src]="cardsContent[2].iconPath" alt="card-icon">
+      <h4>{{cardsContent[2].cardHeader}}</h4>
+    </div>
+    <div class="divider"></div>
+    <div class="text-w-button">
+      <span>{{cardsContent[2].cardText}}</span>
+      <app-additional-button
+        [target]="cardsContent[2].cardType"
+      ></app-additional-button>
+    </div>
+  </div>
+
+  <div class="island-container2" *ngIf="!(showIsland$ | async)">
+    <img src="/assets/pictures/islands/halves/island1.2.webp" alt="islnad1">
+  </div>
+
+  <div class="service-card glass-card special-card">
+    <div class="header-container">
+      <img [src]="cardsContent[3].iconPath" alt="card-icon">
+      <h4>{{cardsContent[3].cardHeader}}</h4>
+    </div>
+    <div class="divider"></div>
+    <div class="text-w-button">
+      <span>{{cardsContent[3].cardText}}</span>
+      <app-additional-button
+        [target]="cardsContent[3].cardType"
       ></app-additional-button>
     </div>
   </div>
