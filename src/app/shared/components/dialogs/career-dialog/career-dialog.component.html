@@ -1,37 +1,53 @@
-<div class="modal-career-overlay" @fadeInOut *ngIf="visible" (click)="onClose()">
+<form *ngIf="visible" class="modal-career-overlay" @fadeInOut (submit)="submit()" (click)="onClose()">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <button class="close-button" (click)="onClose()">
       <img src="/assets/icons/close.svg" alt="close">
     </button>
     <div class="custom-body">
       <h1>Запускаем заявку в производство!</h1>
+
       <div class="input-container">
-        <input type="text" pSize="small" placeholder="Укажите ваше имя" />
-        <input type="text" pSize="small" placeholder="Укажите номер телефона " />
-        <input type="text" pSize="small" placeholder="Укажите E-mail" />
+        <input type="text" [(ngModel)]="name" name="name" placeholder="Укажите ваше имя" required />
+        <input type="text" [(ngModel)]="phone" name="phone" placeholder="Укажите номер телефона" required />
+        <input type="email" [(ngModel)]="email" name="email" placeholder="Укажите E-mail" required />
       </div>
+
       <div class="select-container">
         <p>Когда вам перезвонить?</p>
-        <select name="call-time" id="call-time-select">
+        <select [(ngModel)]="callTime" name="callTime">
           <option value="soon">В ближайшее время</option>
           <option value="duringTheDay">В течение дня</option>
           <option value="onlyPost">Предпочитаю почту</option>
         </select>
       </div>
+
       <div class="privacy">
-        <input type="checkbox" id="privacy" name="privacy"/>
-        <p>
-          Нажимая “Отправить”, вы подтверждаете, что ознакомлены с <a routerLink="/privacy-policy">“Политикой конфиденциальности”</a>
-          и правилиами <a routerLink="/personal-data">“Обработки персональных данных”</a>.
-        </p>
+        <input type="checkbox" [(ngModel)]="accepted" name="accepted" />
+        <label for="privacy">
+            Нажимая “Отправить”, вы подтверждаете, что ознакомлены с
+            <a routerLink="/privacy-policy">Политикой конфиденциальности</a>
+            и
+            <a routerLink="/personal-data">правилами обработки персональных данных</a>.
+          </label>
       </div>
+
       <div class="button-clip">
-        <img src="/assets/icons/clip.svg" alt="clip">
-        <p>Прикрепите свое резюме в форматах .docx(word) или .pdf </p>
+        <button type="button" class="clip-button" (click)="fileInput.click()">
+          <img src="/assets/icons/clip.svg" alt="clip">
+          <span>Прикрепите свое резюме в форматах .docx или .pdf</span>
+        </button>
+        <input
+          #fileInput
+          type="file"
+          (change)="onFileSelected($event)"
+          accept=".pdf,.doc,.docx"
+          hidden
+        />
       </div>
+
       <div class="button-container">
-        <button class="send-button gold-button">Отправить</button>
+        <button class="send-button gold-button" type="submit">Отправить</button>
       </div>
     </div>
   </div>
-</div>
+</form>
