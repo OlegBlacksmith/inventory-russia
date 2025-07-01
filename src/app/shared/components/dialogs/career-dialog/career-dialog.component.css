@@ -133,12 +133,12 @@ select option{
 .privacy{
   margin-top: 6px;
   display: flex;
-  gap: 3px;
+  gap: 5px;
 }
 
-.privacy p{
+.privacy label{
   color: white;
-  font-size: 10px;
+  font-size: 14px;
 }
 
 .button-container{
@@ -162,6 +162,24 @@ select option{
   gap: 10px;
   margin: 10px 0 10px 0;
 }
+
+.clip-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 14px;
+  padding: 0;
+}
+
+.clip-button img {
+  width: 20px;
+  height: 20px;
+}
+
 
 @media (min-width: 375px) and (max-width: 770px){
   .modal-content {
