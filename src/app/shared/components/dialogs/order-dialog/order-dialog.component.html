@@ -1,33 +1,63 @@
-<div class="modal-order-overlay" @fadeInOut *ngIf="visible" (click)="onClose()">
-  <div class="modal-content" (click)="$event.stopPropagation()">
-    <button class="close-button" (click)="onClose()">
-      <img src="/assets/icons/close.svg" alt="close">
-    </button>
-    <div class="custom-body">
-      <h1>Запускаем заявку в производство!</h1>
-      <div class="input-container">
-        <input type="text" pSize="small" placeholder="Укажите ваше имя" />
-        <input type="text" pSize="small" placeholder="Укажите номер телефона " />
-        <input type="text" pSize="small" placeholder="Укажите E-mail" />
-      </div>
-      <div class="select-container">
-        <p>Когда вам перезвонить?</p>
-        <select name="call-time" id="call-time-select">
-          <option value="soon">В ближайшее время</option>
-          <option value="duringTheDay">В течение дня</option>
-          <option value="onlyPost">Предпочитаю почту</option>
-        </select>
-      </div>
-      <div class="privacy">
-        <input type="checkbox" id="privacy" name="privacy"/>
-        <p>
-          Нажимая “Отправить”, вы подтверждаете, что ознакомлены с <a routerLink="/privacy-policy">“Политикой конфиденциальности”</a>
-          и правилиами <a routerLink="/personal-data">“Обработки персональных данных”</a>.
-        </p>
-      </div>
-      <div class="button-container">
-        <button class="send-button gold-button">Отправить</button>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div
+    class="modal-order-overlay"
+    @fadeInOut
+    *ngIf="visible"
+    (click)="onClose()"
+  >
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="close-button" type="button" (click)="onClose()">
+        <img src="/assets/icons/close.svg" alt="close" />
+      </button>
+      <div class="custom-body">
+        <h1>Запускаем заявку в производство!</h1>
+        <div class="input-container">
+          <input
+            type="text"
+            pSize="small"
+            placeholder="Укажите ваше имя"
+            formControlName="name"
+          />
+          <input
+            type="text"
+            pSize="small"
+            placeholder="Укажите номер телефона"
+            formControlName="phone"
+          />
+          <input
+            type="email"
+            pSize="small"
+            placeholder="Укажите E-mail"
+            formControlName="email"
+          />
+        </div>
+        <div class="select-container">
+          <p>Когда вам перезвонить?</p>
+          <select formControlName="callTime">
+            <option value="soon">В ближайшее время</option>
+            <option value="duringTheDay">В течение дня</option>
+            <option value="onlyPost">Предпочитаю почту</option>
+          </select>
+        </div>
+        <div class="privacy">
+          <input type="checkbox" formControlName="accepted" id="privacy" />
+          <label for="privacy">
+            Нажимая “Отправить”, вы подтверждаете, что ознакомлены с
+            <a routerLink="/privacy-policy">Политикой конфиденциальности</a>
+            и
+            <a routerLink="/personal-data">правилами обработки персональных данных</a>.
+          </label>
+        </div>
+        <div class="button-container">
+          <button
+            class="send-button gold-button"
+            type="submit"
+            [disabled]="form.invalid"
+          >
+            Отправить
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</form>
