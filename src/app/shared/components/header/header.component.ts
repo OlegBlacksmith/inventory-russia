@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { AsyncPipe, NgIf } from '@angular/common';
-import { map, Observable } from 'rxjs';
+import { combineLatest, map, Observable } from 'rxjs';
 import { ScreenService } from '../../../services/screen.service';
 import { MobileMenuComponent } from "../mobile-menu/mobile-menu.component";
 import { RouterLink } from '@angular/router';
@@ -31,10 +31,15 @@ export class HeaderComponent {
   };
 
   isMobile$ = this.screenService.isMobile$;
-  isNotMobile$ = this.screenService.isNotMobile$;
+  isTablet$ = this.screenService.isTablet$;
   isMenuOpen$ = this.menuService.isOpen$;
 
-  readonly showNavMenu$ = this.screenService.isMobile$.pipe(
-    map(isMobile => !isMobile)
+  readonly showNavMenu$ = combineLatest([
+    this.screenService.isMobile$,
+    this.screenService.isTablet$
+  ]).pipe(
+      map(([isMobile, isTablet]) => !(isMobile || isTablet))
   );
+
+
 }

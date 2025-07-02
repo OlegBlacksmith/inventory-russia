@@ -59,7 +59,7 @@ export class ServiceCardComponent {
   private screenService = inject(ScreenService);
 
   isMobile$ = this.screenService.isMobile$;
-  isNotMobile$ = this.screenService.isNotMobile$;
+  isNotMobile$ = this.screenService.isTablet$;
 
   readonly showIsland$ = this.screenService.isMobile$.pipe(
     map(isMobile => !isMobile)

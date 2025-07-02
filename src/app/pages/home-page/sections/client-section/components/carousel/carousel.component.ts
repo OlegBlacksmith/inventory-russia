@@ -1,7 +1,7 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
 import { ScreenService } from '../../../../../../services/screen.service';
-import { map, Subject, takeUntil } from 'rxjs';
+import { combineLatest, map, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-carousel',
@@ -28,10 +28,19 @@ export class CarouselComponent implements OnInit, OnDestroy {
   private screenService = inject(ScreenService);
 
   ngOnInit() {
-    this.screenService.isMobile$
+    combineLatest([
+      this.screenService.isMobile$,
+      this.screenService.isTablet$
+    ])
       .pipe(takeUntil(this.destroy$))
-      .subscribe((isMobile) => {
-        this.numVisible = isMobile ? 3 : 5;
+      .subscribe(([isMobile, isTablet]) => {
+        if (isMobile) {
+          this.numVisible = 3;
+        } else if (isTablet) {
+          this.numVisible = 4;
+        } else {
+          this.numVisible = 5;
+        }
       });
   }
 
