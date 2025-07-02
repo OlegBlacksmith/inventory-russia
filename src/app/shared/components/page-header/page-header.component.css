@@ -21,7 +21,7 @@
   margin: 10px 0 0 0;
 }
 
-@media (min-width: 375px) and (max-width: 770px){
+@media (min-width: 375px) and (max-width: 767px){
   .page-header{
     margin-left: 20px;
     font-family: "PT Sans Narrow", sans-serif;
@@ -43,5 +43,26 @@
     font-size: 16px;
     font-weight: 500;
     margin: 10px 0 0 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+  .page-header{
+    margin-left: 20px;
+    font-family: "PT Sans Narrow", sans-serif;
+  }
+
+  .page-header h1{
+    font-size: 28px;
+  }
+
+  .header-divider{
+    width: 59px;
+    height: 2px;
+    background-color: white;
+  }
+
+  .page-header h4{
+    font-size: 16px;
   }
 }

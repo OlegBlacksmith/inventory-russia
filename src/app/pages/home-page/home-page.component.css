@@ -18,8 +18,15 @@
   );
 }
 
-@media (min-width: 375px) and (max-width: 770px){
+@media (min-width: 375px) and (max-width: 767px){
   .home-page{
     display: block;
   }
 }
+
+@media (min-width: 768px) and (max-width: 1024px){
+   .home-page{
+    width: 100%;
+  }
+}
+

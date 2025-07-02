@@ -114,6 +114,7 @@
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   transform: translate(-50%, -50%) rotate(56deg);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.12);
   transform-origin: center center;
   border-radius: 6px;
   overflow: hidden;
@@ -254,5 +255,86 @@
 
   .add-margin{
     margin-left: 65px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+  .app-greet{
+    height: 140vh;
+    width: 100%;
+    margin-bottom: 160px;
+  }
+
+  .text-container{
+    width: 60%;
+  }
+
+  .text-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  .main-text h1{
+    font-size: 28px;
+  }
+
+  .main-take{
+    margin-bottom: 30px;
+  }
+
+  .main-take span{
+    font-size: 24px;
+  }
+
+  .list{
+    gap: 18px;
+    margin-bottom: 42px;
+  }
+
+  .list-item{
+    gap: 8px;
+  }
+
+  .list-item span{
+    font-size: 16px;
+  }
+
+  .main-logo{
+    width: 160px;
+    height: 160px;
+  }
+
+  .logo-divider {
+    width: 180px;
+    height: 180px;
+  }
+
+  .moscow-city{
+    width: 170px;
+    height: 170px;
+    opacity: 0.5;
+  }
+
+  .logo-container{
+    width: 100px;
+    height: 100px;
+  }
+
+  .right-side{
+    left: 70%;
+    bottom: 37%;
+    width: 100px;
+  }
+
+  .moscow-city,
+  .logo-divider,
+  .main-logo{
+    top: 40%;
+    right: 0;
   }
 }
