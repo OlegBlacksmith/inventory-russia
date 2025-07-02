@@ -15,12 +15,5 @@ import { AsyncPipe, NgIf } from '@angular/common';
   styleUrl: './greet-section.component.css'
 })
 export class GreetSectionComponent {
-  private screenService = inject(ScreenService);
 
-  isMobile$ = this.screenService.isMobile$;
-  isNotMobile$ = this.screenService.isNotMobile$;
-
-  readonly showNavMenu$ = this.screenService.isMobile$.pipe(
-    map(isMobile => !isMobile)
-  );
 }
