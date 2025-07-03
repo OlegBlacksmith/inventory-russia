@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { PageHeaderComponent } from '../../../../shared/components/page-header/page-header.component';
 import { ServiceCardComponent } from './components/service-card/service-card.component';
 import { ScreenService } from '../../../../services/screen.service';
-import { map } from 'rxjs';
+import { combineLatest, map } from 'rxjs';
 import { AsyncPipe, NgIf } from '@angular/common';
 
 @Component({
@@ -22,7 +22,10 @@ export class ServicesSectionComponent {
   isMobile$ = this.screenService.isMobile$;
   isNotMobile$ = this.screenService.isTablet$;
 
-  readonly showIsland$ = this.screenService.isMobile$.pipe(
-    map(isMobile => !isMobile)
+  readonly showIsland$ = combineLatest([
+    this.screenService.isMobile$,
+    this.screenService.isTablet$
+  ]).pipe(
+    map(([isMobile, isTablet]) => !(isMobile || isTablet))
   );
 }
