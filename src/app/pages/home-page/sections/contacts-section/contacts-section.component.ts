@@ -23,9 +23,9 @@ export class ContactsSectionComponent {
   isTablet$ = this.screenService.isTablet$;
 
   readonly showIsland$ = combineLatest([
-      this.screenService.isMobile$,
-      this.screenService.isTablet$
-    ]).pipe(
-      map(([isMobile, isTablet]) => !(isMobile || isTablet))
-    );
+    this.screenService.isMobile$,
+    this.screenService.isTablet$
+  ]).pipe(
+    map(([isMobile, isTablet]) => !(isMobile || isTablet))
+  );
 }
