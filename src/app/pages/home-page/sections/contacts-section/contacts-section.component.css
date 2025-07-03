@@ -2,8 +2,7 @@
   position: relative;
   z-index: 1;
   min-height: 110vh;
-  min-width: 1416px;
-  max-width: 1416px;
+  width: 1416px;
   margin-bottom: 160px;
 }
 
@@ -33,7 +32,7 @@
   font-family: 'Inter', sans-serif;
   color: #303030;
   padding: 20px 23px;
-  max-width: 465px;
+  width: 465px;
 }
 
 .card h4{
@@ -100,10 +99,10 @@ p{
   pointer-events: none;
 }
 
-@media (min-width: 375px) and (max-width: 770px){
+@media (min-width: 375px) and (max-width: 767px){
   .app-contacts{
     position: relative;
-    min-width: 100%;
+    width: 100%;
     margin-bottom: 0;
   }
 
@@ -163,4 +162,72 @@ p{
   .margin{
     margin: 20px 0 88px 0;
   }
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+  
+  .app-contacts{
+    position: relative;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .app-contacts::before {
+    top: -2%;
+    width: 99vw;
+    height: 350px;
+  }
+
+  .cards-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: unset;
+    margin-top: 48px;
+    gap: 20px;
+  }
+
+  .card{
+    padding: 20px 23px;
+    margin: 0 0 0 10px;
+    width: 98%;
+  }
+
+  .card h4{
+    font-size: 18px;
+  }
+
+  .item-w-icon{
+    font-size: 16px;
+    gap: 10px;
+  }
+
+  .island-container1,
+  .island-container2{
+    display: flex;
+    width: 100%;
+  }
+
+  .island-container1{
+    justify-content: flex-start;
+  }
+
+  .island-container2{
+    justify-content: flex-end;
+  }
+
+  .island-container1 img,
+  .island-container2 img{
+    width: 360px;
+  }
+
+  .footer-text{
+    margin: 150px 0 0 0;
+    font-size: 16px;
+    padding: 0 20px 120px 20px;
+  }
+
+  .margin{
+    margin: 20px 0 88px 0;
+  }
+ 
 }
