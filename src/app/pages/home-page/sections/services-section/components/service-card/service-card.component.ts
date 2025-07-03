@@ -3,7 +3,7 @@ import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { AdditionalButtonComponent } from '../additional-button/additional-button.component';
 import { ServiceCard } from '../../../../../../shared/data/models/service-card.interface';
 import { ScreenService } from '../../../../../../services/screen.service';
-import { map } from 'rxjs';
+import { combineLatest, map } from 'rxjs';
 
 
 @Component({
@@ -61,7 +61,10 @@ export class ServiceCardComponent {
   isMobile$ = this.screenService.isMobile$;
   isNotMobile$ = this.screenService.isTablet$;
 
-  readonly showIsland$ = this.screenService.isMobile$.pipe(
-    map(isMobile => !isMobile)
+  readonly showIsland$ = combineLatest([
+    this.screenService.isMobile$,
+    this.screenService.isTablet$
+  ]).pipe(
+    map(([isMobile, isTablet]) => !(isMobile || isTablet))
   );
 }
