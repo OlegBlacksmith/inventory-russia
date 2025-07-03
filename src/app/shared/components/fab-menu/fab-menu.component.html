@@ -2,7 +2,7 @@
   class="fab"
   [class.visible]="isHeaderHidden()"
   (click)="toggleMenu()"
-  *ngIf="isMobile$ | async"
+  *ngIf="(isMobile$ | async) || (isTablet$ | async)"
 >
   <ng-container *ngIf="!(isOpen$ | async); else closeIcon">
     <svg width="24" height="24" viewBox="0 0 24 24">

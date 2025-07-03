@@ -20,6 +20,7 @@ export class FabMenuComponent {
 
   isOpen$ = this.menuService.isOpen$;
   isMobile$ = this.screenService.isMobile$;
+  isTablet$ = this.screenService.isTablet$;
 
   isHeaderHidden = signal(false);
 

@@ -29,7 +29,7 @@
         <a href="mailto:info@inventory-russia.ru">info&#64;inventory-russia.ru</a>
       </div>
     </div>
-    <button class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle menu" *ngIf="isMobile$ | async">
+    <button class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle menu" *ngIf="(isMobile$ | async) || (isTablet$ | async)">
       <ng-container *ngIf="!(isMenuOpen$ | async); else closeIcon">
         <svg width="24" height="24" viewBox="0 0 24 24">
           <path d="M3 6h18M3 12h18M3 18h18" stroke="white" stroke-width="2" stroke-linecap="round" />
@@ -44,6 +44,6 @@
   </div>
 
   <app-mobile-menu
-    *ngIf="isMobile$ | async"
+    *ngIf="(isMobile$ | async) || (isTablet$ | async)"
   ></app-mobile-menu>
 </header>
