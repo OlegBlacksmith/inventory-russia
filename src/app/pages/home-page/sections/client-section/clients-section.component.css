@@ -95,11 +95,12 @@
     min-height: 140vh;
     max-width: 100%;
     margin-bottom: 160px;
+    overflow: hidden;
   }
 
   .island-container1 img,
   .island-container2 img{
-    width: 360px;
+    width: 460px;
   }
 
   .island-container1,
@@ -113,5 +114,19 @@
 
   .island-container2{
     justify-content: flex-end;
+  }
+
+  .one{
+    left: -8%;
+    top: 8%;
+  }
+
+  .two{
+    top: 48%;
+    left: 31%;
+  }
+
+  .three{
+    display: none;
   }
 }
