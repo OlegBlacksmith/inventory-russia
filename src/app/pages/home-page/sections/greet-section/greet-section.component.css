@@ -288,7 +288,7 @@
     height: 100vh;
     width: 1200px;
     margin-bottom: 160px;
-    margin: auto;
+    margin: 0 auto;
   }
 
   .right-side{
