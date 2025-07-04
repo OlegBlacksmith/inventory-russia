@@ -69,7 +69,7 @@
   justify-content: flex-end;
 }
 
-@media (min-width: 375px) and (max-width: 770px){
+@media (min-width: 375px) and (max-width: 767px){
   .page-wrapper{
     width: 100%;
   }
@@ -87,5 +87,38 @@
     top: 12%;
     width: 99vw;
     height: 350px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+  .page-wrapper{
+    width: 100%;
+  }
+
+  .list{
+    font-size: 14px;
+    padding: 20px;
+  }
+
+  .button-container{
+    padding: 20px;
+  }
+
+  .personal-data::before {
+    top: 12%;
+    width: 99vw;
+    height: 350px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px){
+  .page-wrapper{
+    width: 100%;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1440px){
+  .page-wrapper{
+    width: 1200px;
   }
 }

@@ -231,3 +231,41 @@ p{
     margin: 20px 0 88px 0;
   }
 }
+
+@media (min-width: 1025px) and (max-width: 1280px){
+  .app-contacts{
+    min-height: 110vh;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .island-container{
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .island-container img{
+    width: 980px;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1440px){
+  .app-contacts{
+    min-height: 130vh;
+    width: 1200px;
+    padding: 20px;
+    margin: auto;
+    padding-bottom: 100px;
+  }
+
+  .island-container{
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .island-container img{
+    width: 980px;
+  }
+}

@@ -188,7 +188,7 @@ p{
   .island-container2{
     justify-content: flex-end;
   }
-  
+
   .island-container1 img,
   .island-container2 img{
     width: 460px;
@@ -197,5 +197,63 @@ p{
   .big-card{
     font-size: 15px;
     margin: 20px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px){
+  .app-career{
+    position: relative;
+    min-height: 200vh;
+    max-width: 100%;
+    margin-bottom: 160px;
+    overflow: hidden;
+    padding: 20px;
+  }
+
+  .mini-cards-container{
+    position: relative;
+    z-index: 2;
+  }
+
+  .card-1 {
+    order: 2;
+  }
+  .card-2 {
+    order: 1;
+    width: 510px;
+  }
+
+  .island-container{
+    left: 50%;
+    transform: translateX(-50%);
+    top: 45%;
+  }
+
+  .island-container img{
+    width: 980px;
+    height: 560px;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1440px){
+  .app-career{
+    position: relative;
+    min-height: 200vh;
+    width: 1200px;
+    margin-bottom: 160px;
+    overflow: hidden;
+    padding: 20px;
+    margin: auto;
+  }
+
+  .island-container{
+    left: 49%;
+    transform: translateX(-50%);
+    top: 39%;
+  }
+
+  .island-container img{
+    width: 980px;
+    height: 560px;
   }
 }

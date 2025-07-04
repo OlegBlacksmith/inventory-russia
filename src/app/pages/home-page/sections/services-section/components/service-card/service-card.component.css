@@ -127,3 +127,35 @@
     width: 360px;
   }
 }
+
+@media (min-width: 1025px) and (max-width: 1280px){
+  .cards-container{
+    display: flex;
+    gap: 30px;
+  }
+
+  .service-card {
+    width: 30%;
+    height: 460px;
+  }
+
+  .service-card h4{
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1440px){
+  .cards-container{
+    display: flex;
+    gap: 30px;
+  }
+
+  .service-card {
+    width: 30%;
+    height: 380px;
+  }
+
+  .service-card h4{
+    font-size: 19px;
+  }
+}

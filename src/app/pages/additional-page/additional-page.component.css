@@ -85,7 +85,7 @@ h3{
   top: -5%;
 }
 
-@media (min-width: 375px) and (max-width: 770px){
+@media (min-width: 375px) and (max-width: 767px){
   .header-container h1{
     font-size: 35px;
     font-family: "PT Sans Narrow", sans-serif;
@@ -104,5 +104,43 @@ h3{
 
   .item-w-bullit p{
     font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+  .header-container h1{
+    font-size: 35px;
+    font-family: "PT Sans Narrow", sans-serif;
+  }
+
+  h3{
+    font-size: 28px;
+    margin-bottom: 28px;
+  }
+
+  .page-wrapper{
+    position: relative;
+    width: 100%;
+    padding: 64px 20px 0 20px;
+  }
+
+  .item-w-bullit p{
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px){
+  .page-wrapper{
+    position: relative;
+    width: 100%;
+    padding: 64px 20px 0 20px;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1440px){
+  .page-wrapper{
+    position: relative;
+    width: 1200px;
+    padding: 64px 20px 0 20px;
   }
 }

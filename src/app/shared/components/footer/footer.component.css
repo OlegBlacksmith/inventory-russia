@@ -34,7 +34,7 @@
   color: white;
 }
 
-@media (min-width: 375px) and (max-width: 770px){
+@media (min-width: 375px) and (max-width: 767px){
   .content-wrapper{
     flex-direction: column;
     width: 100%;
@@ -53,5 +53,23 @@
 
   .links{
     align-items: center;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1440px){
+  .app-footer{
+    width: 100%;
+  }
+
+  .content-wrapper{
+    width: 90%;
+  }
+
+  .logo-container img{
+    width: 146px;
+  }
+
+  .logo-container p{
+    font-size: 13.5px;
   }
 }

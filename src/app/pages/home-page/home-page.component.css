@@ -25,9 +25,22 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px){
-   .home-page{
+  .home-page{
     width: 100%;
     align-items: unset;
   }
 }
 
+@media (min-width: 1025px) and (max-width: 1280px){
+  .home-page{
+    width: 100%;
+    align-items: unset;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1440px){
+  .home-page{
+    width: 100%;
+    align-items: unset;
+  }
+}
