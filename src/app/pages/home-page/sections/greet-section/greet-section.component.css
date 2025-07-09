@@ -290,7 +290,7 @@
 
 @media (min-width: 1281px) and (max-width: 1440px){
   .app-greet{
-    height: 100vh;
+    height: auto;
     width: 1200px;
     margin-bottom: 160px;
     margin: 0 auto;
