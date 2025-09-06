@@ -1,0 +1,17 @@
+.error, .success{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.error{
+  color: red;
+}
+
+.success{
+  color: #1f9e73;
+}
+
+.error img, .success img{
+  width: 20px;
+}

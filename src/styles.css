@@ -1,6 +1,15 @@
 @import './styles/gold-button-styles.css';
 @import './styles/card.css';
 @import './styles/add-page.css';
+@import './styles/update-button.css';
+@import './styles/mini-text.css';
+@import './styles/warn-text.css';
+@import './styles/system-button.css';
+@import './styles/upload-button.css';
+@import './styles/err-succ-mess.css';
+@import './styles/delete-button.css';
+@import './styles/control-card.css';
+
 
 body{
   margin: 0;

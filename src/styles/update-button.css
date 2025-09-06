@@ -1,0 +1,21 @@
+.upd-btn{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #f4f4f4;
+  padding: 12px;
+  transition: 0.3s;
+}
+
+.upd-btn:hover{
+  background-color: #e7e7e7;
+}
+
+.upd-btn img{
+  width: 22px;
+}

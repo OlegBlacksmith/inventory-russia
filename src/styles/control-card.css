@@ -1,0 +1,143 @@
+.control-card{
+  background-color: #ffffff;
+  padding: 12px;
+  border: 0.5px black solid;
+  border-radius: 12px;
+}
+
+.c-header-container{
+  display: flex;
+  justify-content: space-between;
+  margin: 16px 0;
+  align-items: flex-start;
+}
+
+.exp-title{
+  font-family: 'Inter', sans-serif;
+  font-size: 28px;
+  margin: 16px 10px;
+}
+
+.content-wrapper{
+  display: flex;
+  position: relative;
+  gap: 16px;
+}
+
+.file-list {
+  width: 50%;
+  height: 400px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+}
+
+.file-list-headers {
+  display: flex;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #ccc;
+  font-weight: 600;
+  color: #555;
+}
+
+.file-number{
+  width: 80px;
+}
+
+.file-name-header {
+  flex: 2;
+}
+
+.usage-header {
+  margin-right: 20px;
+}
+
+.action-header {
+  width: 40px;
+}
+
+.file-row {
+  position: relative;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.file-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 0.5px black solid;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  background-color: white;
+  z-index: 99;
+}
+
+.file-item:hover {
+  background-color: #f4f4f4;
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(57, 57, 57, 0.1);
+  z-index: 10;
+}
+
+.file-item p{
+  font-family: 'Inter', sans-serif;
+}
+
+.file-name{
+  font-size: 16px;
+}
+
+.time-stamp{
+  font-size: 14px;
+}
+
+.h-divider{
+  width: 100%;
+  height: 1px;
+  background-color: #949494;
+  margin: 20px 0 8px 0;
+}
+
+.file-details{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.pic-container{
+  display: flex;
+  width: 50%;
+  background-color: #e7e7e7;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.pic-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.pre{
+  align-self: center;
+}
+
+.pre p{
+  font-size: 20px;
+  color: #949494;
+  padding: 90px;
+  text-align: center;
+}

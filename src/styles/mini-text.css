@@ -1,0 +1,11 @@
+.mini-text{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: #000;
+}
+
+.mini-text img{
+  width: 20px;
+}

@@ -1,0 +1,22 @@
+.system-button{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #3a7bff;
+  padding: 5px 15px;
+  color: white;
+  transition: 0.3s;
+}
+
+.system-button:hover{
+  background-color: #3266cd;
+}
+
+.system-button img{
+  width: 22px;
+}

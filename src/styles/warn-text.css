@@ -1,0 +1,11 @@
+.warn-text{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: #ff8400;
+}
+
+.warn-text img{
+  width: 20px;
+}
