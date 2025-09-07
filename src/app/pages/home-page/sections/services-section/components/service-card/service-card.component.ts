@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe, NgIf } from '@angular/common';
 import { AdditionalButtonComponent } from '../additional-button/additional-button.component';
-import { ServiceCard } from '../../../../../../shared/data/models/service-card.interface';
+import { ServiceCard } from '../../../../../../shared/models/service-card.model';
 import { ScreenService } from '../../../../../../services/screen.service';
 import { combineLatest, map } from 'rxjs';
 
