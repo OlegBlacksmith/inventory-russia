@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GreetSectionComponent } from './sections/greet-section/greet.component';
+import { GreetSectionComponent } from './sections/greet-section/greet-section.component';
 import { ServicesSectionComponent } from './sections/services-section/services-section.component';
 import { ClientsSectionComponent } from './sections/client-section/clients-section.component';
 import { CareerSectionComponent } from './sections/career-section/career-section.component';
