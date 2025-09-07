@@ -1,0 +1,43 @@
+.admin-page{
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+.page-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.header-container{
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0 0 0;
+}
+
+.logout-btn{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #2f2fbf;
+  padding: 12px;
+  color: white;
+  transition: 0.3s;
+}
+
+.logout-btn:hover{
+  background-color: #5757c7;
+}
+
+.logout-btn img{
+  width: 22px;
+}
