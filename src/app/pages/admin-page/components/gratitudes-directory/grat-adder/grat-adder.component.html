@@ -1,0 +1,78 @@
+<div class="adder-container">
+  <h1 class="title">Добавить благодарственное письмо</h1>
+
+  <div class="info-block">
+    <div class="mini-text">
+      <img src="/assets/icons/admin_info.svg" alt="info" />
+      При помощи мышки, вы можете перетащить файлы в зону с пунктиром,
+      или нажмите кнопку "Выбрать файлы".
+    </div>
+
+    <div class="warn-text">
+      <img src="/assets/icons/admin_warn.svg" alt="warn" />
+      <p>
+        <b>Вы можете менять названия файлов</b>, но не пытайтесь вручную
+        дописать формат в виде ".jpg" или ".png".
+        Для корректной работы соблюдайте правило имени: используйте латиницу и короткие названия.
+      </p>
+    </div>
+  </div>
+
+  <div
+    class="drop-zone"
+    (drop)="onFileDrop($event)"
+    (dragover)="onDragOver($event)"
+    (dragleave)="onDragLeave($event)"
+    [class.active]="dragActive"
+  >
+    Перетащите файлы сюда или нажмите
+    <input
+      type="file"
+      (change)="onFileSelected($event)"
+      hidden
+      #fileInput
+      multiple
+    />
+    <button type="button" (click)="fileInput.click()">Выбрать файлы</button>
+  </div>
+
+  <div class="file-row-container">
+    <div *ngFor="let item of selectedFiles; let i = index" class="file-row">
+      <div class="custon-name-container">
+        <input
+          (input)="sanitizeFileName(i)"
+          [(ngModel)]="selectedFiles[i].customName"
+          placeholder="Имя файла"
+        />
+        <p class="file-type">.{{ item.file.name.split('.').pop() }}</p>
+      </div>
+      <button type="button" (click)="removeFile(i)">Отмена</button>
+    </div>
+  </div>
+
+  <div class="warn-text" *ngIf="isFileSelect">
+    <img src="/assets/icons/admin_warn.svg" alt="warn" />
+    <b>Имя файла указывайте на английском</b>, т.к. система стабильнее
+    работает с латиницей.
+  </div>
+
+  <button
+    class="upload-button"
+    (click)="uploadAllFiles()"
+    [disabled]="selectedFiles.length === 0"
+  >
+    Загрузить
+    <img src="/assets/icons/upload.svg" alt="upload" />
+  </button>
+
+  <div class="log-messages-container">
+    <div class="error" *ngIf="errorMess">
+      <img src="/assets/icons/admin_warn.svg" alt="error" />
+      <p>{{ errorMess }}</p>
+    </div>
+    <div class="success" *ngIf="successMess">
+      <img src="/assets/icons/admin_success.svg" alt="success" />
+      <p>{{ successMess }}</p>
+    </div>
+  </div>
+</div>
