@@ -4,23 +4,26 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-coockie-bubble',
-  imports: [
-    NgIf,
-    RouterLink
-  ],
+  imports: [NgIf, RouterLink],
   templateUrl: './coockie-bubble.component.html',
-  styleUrl: './coockie-bubble.component.css'
+  styleUrl: './coockie-bubble.component.css',
 })
-export class CoockieBubbleComponent implements OnInit{
+export class CoockieBubbleComponent implements OnInit {
   isBubbleVisible?: boolean;
+  readonly consentKey = 'cookieConsentChoice';
 
-  ngOnInit(){
-    this.isBubbleVisible = true;
-    document.body.style.overflow = 'hidden';
+  ngOnInit() {
+    const consent = localStorage.getItem(this.consentKey);
+    this.isBubbleVisible = !consent;
+
+    if (this.isBubbleVisible) {
+      document.body.style.overflow = 'hidden';
+    }
   }
 
-  closeBubble(){
-    this.isBubbleVisible = false
+  closeBubble() {
+    this.isBubbleVisible = false;
     document.body.style.overflow = '';
+    localStorage.setItem(this.consentKey, 'accepted');
   }
 }
