@@ -10,10 +10,10 @@ export class MailService {
   constructor(private http: HttpClient) { }
 
   sendEmailWFile(formData: FormData): Observable<any> {
-    return this.http.post('http://localhost:3000/send-email-w-file', formData);
+    return this.http.post('http://localhost:3000/api/mail/with-file', formData);
   }
 
   sendEmailReg(formData: FormData): Observable<any> {
-    return this.http.post('http://localhost:3000/send-email-reg', formData);
+    return this.http.post('http://localhost:3000/api/mail/no-file', formData);
   }
 }
