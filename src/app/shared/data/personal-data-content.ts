@@ -1,4 +1,4 @@
-import { Section } from "./models/section.interface";
+import { Section } from "../models/section.model";
 
 export const personalDataContent: Section[] = [
   {
