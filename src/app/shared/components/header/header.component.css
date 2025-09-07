@@ -81,6 +81,12 @@ a{
     color: #ffff;
   }
 
+  .contact-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
   .contact-info .tel{
     font-size: 16px;
   }
@@ -103,6 +109,12 @@ a{
 
   .content-wrapper{
     min-width: 90%;
+  }
+
+  .contact-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
   }
 }
 
