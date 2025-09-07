@@ -1,0 +1,58 @@
+<div class="log-view" id="log-view">
+  <div class="log-wrapper">
+    <div class="header-container">
+      <h1 class="log-title">Журнал обновлений</h1>
+      <button (click)="getLogs()" class="upd-btn">
+        Обновить <img src="/assets/icons/update.svg" alt="upd-ico" />
+      </button>
+    </div>
+    <div class="log-scroll-wrapper">
+      <table class="log-table">
+        <thead>
+          <tr>
+            <th>№</th>
+            <th>Дата и время</th>
+            <th>Пользователь</th>
+            <th>Действие</th>
+            <th>Имя файла</th>
+          </tr>
+        </thead>
+      </table>
+
+      <div class="log-scroll">
+        <table class="log-table">
+          <tbody>
+            <tr *ngFor="let item of logs; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>
+                {{
+                  item.timeStamp ? formatDateRu(item.timeStamp) : "Загрузка..."
+                }}
+              </td>
+              <td>{{ item.userName || "Загрузка..." }}</td>
+              <td>{{ getDataDictionary(item.infoType) }}</td>
+              <td
+                class="file-column"
+                [title]="item.fileNames?.join(', ') || item.fileName || ''"
+              >
+                <ng-container *ngIf="hasFileNames(item); else singleFile">
+                  {{ item.fileNames!.slice(0, 2).join(", ") }}
+                  <span *ngIf="item.fileNames!.length > 2">
+                    + ещё {{ item.fileNames!.length - 2 }}
+                  </span>
+                </ng-container>
+                <ng-template #singleFile>
+                  {{
+                    item.fileName && item.fileName !== "null"
+                      ? item.fileName
+                      : "–"
+                  }}
+                </ng-template>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
