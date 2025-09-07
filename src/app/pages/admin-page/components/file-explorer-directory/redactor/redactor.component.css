@@ -1,0 +1,61 @@
+.file-redactor{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20px 0 20px 0;
+  padding: 10px;
+}
+
+.title{
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 200%;
+  margin: 10px 0;
+}
+
+.label {
+  width: 160px;
+  flex-shrink: 0;
+  font-weight: 500;
+}
+
+.item {
+  flex-grow: 1;
+  padding: 6px 10px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.close-btn{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: unset;
+  padding: 12px;
+}
+
+.add-margin{
+  margin: 15px 0 15px 0;
+}
+
+.close-btn:hover{
+  background-color: #d1d1d1;
+}
+
+.close-btn img{
+  width: 20px;
+}
+
+
+

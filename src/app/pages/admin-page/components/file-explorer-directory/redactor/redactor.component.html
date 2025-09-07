@@ -1,0 +1,24 @@
+<div *ngIf="isRedactorVisible" class="file-redactor">
+  <div class="content">
+    <p class="title">
+      Редактор: <b>{{ selectedItem.title }}</b>
+    </p>
+    <form [formGroup]="form">
+      <div class="container" *ngFor="let key of objectKeys(payload)">
+        <p class="label">{{ getLabel(key) }}:</p>
+        <input class="item" type="text" [formControlName]="key" />
+      </div>
+    </form>
+    <div class="mini-text">
+      <img src="/assets/icons/admin_info.svg" alt="info" />
+      Просто нажмите "сохранить", данные в обновленном виде попадут на сайт.
+    </div>
+    <button class="system-button add-margin" (click)="saveChanges()">
+      Сохранить
+      <img src="/assets/icons/save.svg" alt="save" />
+    </button>
+  </div>
+  <button class="close-btn" (click)="onCloseClick()">
+    <img src="/assets/icons/close_black.svg" alt="close" />
+  </button>
+</div>
