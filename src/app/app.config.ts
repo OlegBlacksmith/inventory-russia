@@ -4,7 +4,8 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
-import { provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors } from '@angular/common/http';
+import { AuthInterceptor } from './services/auth-interceptor.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -12,6 +13,8 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimationsAsync(),
     providePrimeNG({}),
-    provideHttpClient()
-  ]
+    provideHttpClient(
+      withInterceptors([AuthInterceptor])
+    ),
+  ],
 };
