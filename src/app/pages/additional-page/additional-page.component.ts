@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BackButtonComponent } from '../../shared/components/buttons/back-button/back-button.component';
 import { OrderButtonComponent } from '../../shared/components/buttons/order-button/order-button.component';
 import { ActivatedRoute } from '@angular/router';
@@ -16,7 +16,7 @@ import { NgFor, NgIf } from '@angular/common';
   templateUrl: './additional-page.component.html',
   styleUrl: './additional-page.component.css'
 })
-export class AdditionalPageComponent {
+export class AdditionalPageComponent implements OnInit{
   type: string | null = null;
   content: { title: string; items: string[]; icon: string } | null = null;
 
@@ -25,6 +25,10 @@ export class AdditionalPageComponent {
       this.type = params.get('type');
       this.loadContentBasedOnType();
     });
+  }
+
+  ngOnInit(): void {
+    window.scrollTo(0, 0);
   }
 
   loadContentBasedOnType() {
