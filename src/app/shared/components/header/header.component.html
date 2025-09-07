@@ -1,7 +1,7 @@
 <header class="app-header" id="app-header">
   <div class="content-wrapper">
     <a routerLink="/">
-      <img class="logo" src="/assets/pictures/logos/header_logo.webp" alt="logo-header">
+      <img class="logo" [src]="headerLogo?.url" [alt]="headerLogo?.type">
     </a>
     <div class="nav-menu" *ngIf="showNavMenu$ | async">
       <div class="nav-item">
@@ -23,10 +23,10 @@
       </div>
     </div>
     <div class="contact-info">
-      <a class="tel" href="tel:+74957670994">8 (495)767-09-94</a>
+      <a class="tel" [href]="'tel:' + formatPhoneNumber(companyInfo?.phone)">{{companyInfo?.phone}}</a>
       <div class="mail">
         <img src="/assets/icons/mail.svg" alt="mail-icon">
-        <a href="mailto:info@inventory-russia.ru">info&#64;inventory-russia.ru</a>
+        <a [href]="'mailto:' + companyInfo?.email">{{companyInfo?.email}}</a>
       </div>
     </div>
     <button class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle menu" *ngIf="(isMobile$ | async) || (isTablet$ | async)">
