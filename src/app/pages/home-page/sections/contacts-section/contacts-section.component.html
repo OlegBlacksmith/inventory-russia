@@ -11,15 +11,15 @@
       <div class="list">
         <div class="item-w-icon">
           <img src="/assets/icons/address.svg" alt="address">
-          <p><b>Адрес:</b> 108805, г. Москва, район Бекасово, кв-л 182, д. 303</p>
+          <p><b>Адрес:</b> {{companyInfo?.address}}</p>
         </div>
         <div class="item-w-icon">
           <img src="/assets/icons/phone.svg" alt="">
-          <p><b>Телефон:</b> 8 (495) 767-09-94</p>
+          <p><b>Телефон:</b> {{companyInfo?.phone || "Загрузка..."}}</p>
         </div>
         <div class="item-w-icon">
           <img src="/assets/icons/mail_pencil.svg" alt="">
-          <p><b>E-mail:</b> info&#64;inventory-russia.ru</p>
+          <p><b>E-mail:</b> {{companyInfo?.email || "Загрузка..."}}</p>
         </div>
       </div>
     </div>
@@ -32,14 +32,14 @@
       <h4>Реквизиты</h4>
       <div class="divider"></div>
       <div class="list">
-        <p><b>ООО “Инвентаризация”</b></p>
-        <p><b>ОГРН:</b> 1117746363613</p>
-        <p><b>ИНН:</b> 7729682065</p>
-        <p><b>КПП:</b> 775101001</p>
-        <p><b>Р/С</b> 40702810700550001538</p>
-        <p><b>БИК</b> 044525411</p>
-        <p><b>БАНК</b> ФИЛИАЛ "ЦЕНТРАЛЬНЫЙ" БАНКА ВТБ (ПАО)</p>
-        <p><b>К/С</b> 30101810145250000411</p>
+        <p><b>{{details?.title || "ООО \"Инвентаризация\""}}</b></p>
+        <p><b>ОГРН:</b> {{details?.ogrn || "Загрузка..."}}</p>
+        <p><b>ИНН:</b> {{details?.inn || "Загрузка..."}}</p>
+        <p><b>КПП:</b> {{details?.kpp || "Загрузка..."}}</p>
+        <p><b>Р/С</b> {{details?.rs || "Загрузка..."}}</p>
+        <p><b>БИК</b> {{details?.bik || "Загрузка..."}}</p>
+        <p><b>БАНК</b> {{details?.bankName || "Загрузка..."}}</p>
+        <p><b>К/С</b> {{details?.ks || "Загрузка..."}}</p>
       </div>
     </div>
   </div>

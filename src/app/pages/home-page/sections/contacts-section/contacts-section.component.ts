@@ -1,9 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { PageHeaderComponent } from '../../../../shared/components/page-header/page-header.component';
 import { OrderButtonComponent } from '../../../../shared/components/buttons/order-button/order-button.component';
 import { ScreenService } from '../../../../services/screen.service';
 import { combineLatest, map } from 'rxjs';
 import { AsyncPipe, NgIf } from '@angular/common';
+import CompanyInfo from '../../../../shared/models/company-info.model';
+import Details from '../../../../shared/models/details.model';
 
 @Component({
   selector: 'app-contacts',
@@ -17,6 +19,9 @@ import { AsyncPipe, NgIf } from '@angular/common';
   styleUrl: './contacts-section.component.css'
 })
 export class ContactsSectionComponent {
+  @Input() public companyInfo: CompanyInfo | undefined;
+  @Input() public details: Details | undefined;
+
   private screenService = inject(ScreenService);
 
   isMobile$ = this.screenService.isMobile$;
