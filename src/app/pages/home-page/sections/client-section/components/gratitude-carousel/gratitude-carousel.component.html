@@ -1,13 +1,19 @@
 <div class="carousel-wrapper">
   <p-carousel
-    [value]="images"
+    [value]="gratitude"
     [numVisible]="numVisible"
     [numScroll]="1"
     [circular]="true"
   >
     <ng-template let-image #item>
       <div class="image-wrapper">
-        <img [src]="image" alt="Image" class="carousel-image" />
+        <img
+          [src]="image"
+          alt="Image"
+          class="carousel-image"
+          (click)="openInNewTab(image)"
+          style="cursor: pointer;"
+        />
       </div>
     </ng-template>
   </p-carousel>

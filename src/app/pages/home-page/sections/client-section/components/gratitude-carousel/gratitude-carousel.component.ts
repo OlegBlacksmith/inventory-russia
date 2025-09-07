@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { ScreenService } from '../../../../../../services/screen.service';
 import { CarouselModule } from 'primeng/carousel';
@@ -12,14 +12,8 @@ import { CarouselModule } from 'primeng/carousel';
   styleUrl: './gratitude-carousel.component.css'
 })
 export class GratitudeCarouselComponent implements OnInit, OnDestroy{
+  @Input() gratitude: string[] = [];
   numVisible = 5;
-
-  images: string[] = [
-    '/assets/pictures/gratitudes/grat1.webp',
-    '/assets/pictures/gratitudes/grat2.webp',
-    '/assets/pictures/gratitudes/grat3.webp',
-    '/assets/pictures/gratitudes/grat3.webp'
-  ];
 
   private destroy$ = new Subject<void>();
   private screenService = inject(ScreenService);
@@ -30,6 +24,12 @@ export class GratitudeCarouselComponent implements OnInit, OnDestroy{
       .subscribe((isMobile) => {
         this.numVisible = isMobile ? 3 : 3;
       });
+  }
+
+  openInNewTab(url: string): void {
+    if (url) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
   }
 
   ngOnDestroy() {
