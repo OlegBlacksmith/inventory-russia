@@ -1,0 +1,62 @@
+<div id="logos-control" class="control-card">
+  <div class="c-header-container">
+    <h1 class="exp-title">Логотипы</h1>
+    <button class="upd-btn" (click)="loadLogos()">
+      Обновить <img src="/assets/icons/update.svg" alt="upd-ico" />
+    </button>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="file-list">
+      <div class="file-list-headers" aria-hidden="true">
+        <div class="file-name-header">Имя файла</div>
+        <div class="usage-header">Используется в:</div>
+        <div class="action-header"></div>
+      </div>
+
+      <ng-container *ngFor="let logo of logos">
+        <div
+          class="file-row"
+          [class.selected]="selectedItem === logo.filename"
+          (click)="selectItem(logo.filename)"
+        >
+          <div class="file-item">
+            <p class="file-name">{{ logo.filename }}</p>
+            <p class="time-stamp">
+              {{ getLogoLabel(logo.type) }}
+            </p>
+          </div>
+
+          <button
+            class="delete-btn"
+            (click)="deleteItem(logo.filename); $event.stopPropagation()"
+          >
+            <img src="/assets/icons/trash.svg" alt="trash" />
+          </button>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="pic-container">
+      <img *ngIf="imageUrl" [src]="imageUrl" alt="Logo preview" />
+      <div class="pre" *ngIf="!imageUrl">
+        <p>Нажмите на логотип в списке, чтобы посмотреть его здесь</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="h-divider"></div>
+
+  <app-logo-adder (filesSelected)="onFilesSelected($event)"></app-logo-adder>
+
+  <div class="log-messages-container">
+    <div class="error" *ngIf="errorMess">
+      <img src="/assets/icons/admin_warn.svg" alt="warn" />
+      <p>{{ errorMess }}</p>
+    </div>
+    <div class="success" *ngIf="successMess">
+      <img src="/assets/icons/admin_success.svg" alt="success" />
+      <p>{{ successMess }}</p>
+    </div>
+  </div>
+</div>
