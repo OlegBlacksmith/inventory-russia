@@ -1,0 +1,67 @@
+<div class="adder-container">
+  <h1 class="title">Добавить логотип</h1>
+
+  <div class="info-block">
+    <div class="mini-text">
+      <img src="/assets/icons/admin_info.svg" alt="info" />
+      Перетащите файлы в зону с пунктирным контуром или нажмите кнопку "Выбрать файлы"
+    </div>
+    <div class="warn-text">
+      <img src="/assets/icons/admin_warn.svg" alt="warn" />
+      <p>
+        <b>Называйте файлы строго в одном формате</b>. Если хотите заменить лого в шапке, назовите его -
+        <b>header-logo</b>. Если в подвале - <b>footer-logo</b>. Самое больше лого должно быть названо
+        <b>main-logo</b>.
+      </p>
+    </div>
+  </div>
+
+  <div
+    class="drop-zone"
+    (drop)="onFileDrop($event)"
+    (dragover)="onDragOver($event)"
+    (dragleave)="onDragLeave($event)"
+    [class.active]="dragActive"
+  >
+    При помощи мышки, вы можете перетащить файлы в зону с пунктиром, или нажмите кнопку "Выбрать файлы".
+    <input
+      type="file"
+      (change)="onFileSelected($event)"
+      hidden
+      #fileInput
+      multiple
+      accept=".png,image/png"
+    />
+    <button type="button" (click)="fileInput.click()">Выбрать файлы</button>
+  </div>
+
+  <div class="file-row-container">
+    <div *ngFor="let item of selectedFiles; let i = index" class="file-row">
+      <div class="custon-name-container">
+        <input
+          (input)="sanitizeFileName(i)"
+          [(ngModel)]="selectedFiles[i].customName"
+          placeholder="Имя файла"
+        />
+        <p class="file-type">{{ '.' + item.file.name.split('.').pop() }}</p>
+      </div>
+
+      <button type="button" (click)="removeFile(i)">Отмена</button>
+    </div>
+  </div>
+
+  <div class="warn-text" *ngIf="isFileSelect">
+    <img src="/assets/icons/admin_warn.svg" alt="warn" />
+    <b>Используйте только латиницу для имён файлов</b>, это улучшит стабильность
+    работы системы!
+  </div>
+
+  <button
+    class="upload-button"
+    (click)="uploadAllFiles()"
+    [disabled]="selectedFiles.length === 0"
+  >
+    Загрузить
+    <img src="/assets/icons/upload.svg" alt="upload" />
+  </button>
+</div>
