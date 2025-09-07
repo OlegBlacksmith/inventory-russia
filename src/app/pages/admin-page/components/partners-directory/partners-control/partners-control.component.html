@@ -1,0 +1,66 @@
+<div id="partners-control" class="control-card">
+  <div class="c-header-container">
+    <h1 class="exp-title">Партнеры</h1>
+    <button class="upd-btn" (click)="loadPartnerPics()">
+      Обновить <img src="/assets/icons/update.svg" alt="upd-ico" />
+    </button>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="file-list" tabindex="0">
+      <div class="file-list-headers" aria-hidden="true">
+        <div class="file-number">№</div>
+        <div class="file-name-header">Имя файла</div>
+        <div class="usage-header">Добавлен:</div>
+        <div class="action-header"></div>
+      </div>
+
+      <ng-container *ngFor="let url of partnerPics">
+        <div class="file-row">
+          <input
+            #posInput
+            type="number"
+            class="position-input"
+            [value]="getPosition(url)"
+            (change)="onPositionChange(url, posInput.value)"
+            min="1"
+            [max]="partnerPics.length"
+            title="Порядковый номер"
+          />
+          <div
+            class="file-item"
+            (click)="selectItem(url)"
+            [class.selected]="selectedItem === getFileName(url)"
+          >
+            <p class="file-name">{{ getFileName(url) }}</p>
+            <p class="time-stamp">
+              {{ uploadLogs[getFileName(url)] ? (uploadLogs[getFileName(url)] | date:'dd.MM.yyyy, HH:mm') : '—' }}
+            </p>
+          </div>
+
+          <button
+            class="delete-btn"
+            (click)="deleteItem(getFileName(url)); $event.stopPropagation()"
+            title="Удалить"
+          >
+            <img src="/assets/icons/trash.svg" alt="trash" />
+          </button>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="pic-container">
+      <img *ngIf="imageUrl" [src]="imageUrl" alt="Partner image" />
+      <div class="pre" *ngIf="!imageUrl">
+        <p>
+          Нажмите на элемент списка партнеров, здесь появится логотип для
+          просмотра
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="h-divider"></div>
+
+  <app-adder (addNewPartner)="onAddNewPartner()"></app-adder>
+</div>

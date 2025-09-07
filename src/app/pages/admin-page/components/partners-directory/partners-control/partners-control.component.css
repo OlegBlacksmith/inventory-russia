@@ -1,0 +1,15 @@
+.position-input {
+  width: 48px;
+  margin-right: 8px;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+.file-name-header-special{
+  flex: 2;
+  display: flex;
+}
