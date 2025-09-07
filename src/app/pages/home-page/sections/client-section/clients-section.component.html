@@ -8,7 +8,7 @@
   ></app-page-header>
 
   <div class="margint-top">
-    <app-carousel></app-carousel>
+    <app-carousel [partners]="partners"></app-carousel>
   </div>
 
   <div class="island-container1" *ngIf="!(showIsland$ | async)">
@@ -16,7 +16,7 @@
   </div>
 
   <div class="margint-top">
-    <app-gratitude-carousel></app-gratitude-carousel>
+    <app-gratitude-carousel [gratitude]="gratitude"></app-gratitude-carousel>
   </div>
 
   <div class="island-container2" *ngIf="!(showIsland$ | async)">
