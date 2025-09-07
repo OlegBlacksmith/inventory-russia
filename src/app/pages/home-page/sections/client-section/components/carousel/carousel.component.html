@@ -1,10 +1,10 @@
 <div class="carousel-wrapper">
   <p-carousel
-    [value]="images"
+    [value]="partners"
     [numVisible]="numVisible"
     [numScroll]="1"
     [circular]="true"
-    autoplayInterval="2000"
+    [autoplayInterval]="2000"
   >
     <ng-template let-image #item>
       <div class="image-wrapper glass-card">

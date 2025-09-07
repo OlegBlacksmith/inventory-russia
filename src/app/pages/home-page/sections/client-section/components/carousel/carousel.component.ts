@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
 import { ScreenService } from '../../../../../../services/screen.service';
 import { combineLatest, map, Subject, takeUntil } from 'rxjs';
@@ -12,17 +12,8 @@ import { combineLatest, map, Subject, takeUntil } from 'rxjs';
   styleUrl: './carousel.component.css'
 })
 export class CarouselComponent implements OnInit, OnDestroy {
+  @Input() partners: string[] = [];
   numVisible = 5;
-
-  images: string[] = [
-    '/assets/pictures/partners/bask.svg',
-    '/assets/pictures/partners/berges.svg',
-    '/assets/pictures/partners/castorama.svg',
-    '/assets/pictures/partners/dbschenker.svg',
-    '/assets/pictures/partners/dunlop.svg',
-    '/assets/pictures/partners/evroset.svg',
-    '/assets/pictures/partners/fashion_hub.svg',
-  ];
 
   private destroy$ = new Subject<void>();
   private screenService = inject(ScreenService);
@@ -37,7 +28,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
         if (isMobile) {
           this.numVisible = 3;
         } else if (isTablet) {
-          this.numVisible = 4;
+          this.numVisible = 5;
         } else {
           this.numVisible = 5;
         }
