@@ -1,0 +1,85 @@
+<div id="file-explorer" class="control-card">
+  <div class="c-header-container">
+    <h1 class="exp-title">Управление информацией</h1>
+    <button class="upd-btn" disabled>
+      Обновить <img src="/assets/icons/update.svg" alt="upd-ico" />
+    </button>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="file-list">
+      <div class="file-list-headers" aria-hidden="true">
+        <div class="file-name-header">Имя файла</div>
+        <div class="usage-header">Последнее обновление:</div>
+        <div class="action-header"></div>
+      </div>
+
+      <ng-container *ngFor="let item of items">
+        <div class="file-row">
+          <div
+            class="file-item"
+            (click)="loadInfo(item)"
+            [class.selected]="item === selectedItem"
+          >
+            <p class="file-name">{{ item.title }}</p>
+            <p class="time-stamp">
+              {{ item.updatedAt ? (item.updatedAt | date:'dd.MM.yyyy, HH:mm') : '—' }}
+            </p>
+          </div>
+
+          <button
+            class="delete-btn"
+
+          >
+            <img src="/assets/icons/trash.svg" alt="trash" />
+          </button>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="payload">
+      <p class="file-type" *ngIf="payload">{{ selectedItem?.title }}</p>
+      <div class="h-divider"></div>
+      <table *ngIf="payload">
+        <tr *ngFor="let key of objectKeys(payload)">
+          <td>
+            <b>{{ getLabel(key) }}:</b>
+          </td>
+          <td>{{ getValue(payload, key) }}</td>
+        </tr>
+      </table>
+      <div *ngIf="!payload" class="sceleton">
+        <p>Выберете тип файла, здесь отобразится информация</p>
+      </div>
+      <button
+        (click)="showRedactor()"
+        class="system-button button-position"
+        *ngIf="payload"
+      >
+        Редактировать
+        <img src="/assets/icons/redact.svg" alt="redact" />
+      </button>
+    </div>
+  </div>
+
+  <div class="h-divider"></div>
+
+  <app-redactor
+    [selectedItem]="selectedItem"
+    [isRedactorVisible]="isRedactorVisible"
+    [payload]="payload"
+    (close)="isRedactorVisible = false"
+    (companyInfoChanged)="onCompanyInfoChanged($event)"
+  ></app-redactor>
+
+  <div class="log-messages-container">
+    <div class="error" *ngIf="errorMess">
+      <img src="/assets/icons/admin_warn.svg" alt="success" />
+      <p>{{ errorMess }}</p>
+    </div>
+    <div class="success" *ngIf="successMess">
+      <img src="/assets/icons/admin_success.svg" alt="success" />
+      <p>{{ successMess }}</p>
+    </div>
+  </div>
+</div>
