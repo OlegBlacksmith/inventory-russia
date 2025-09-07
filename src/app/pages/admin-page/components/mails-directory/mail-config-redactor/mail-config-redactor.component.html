@@ -1,0 +1,76 @@
+<div class="control-card">
+  <h1 class="exp-title">Настройки почтовых адресов</h1>
+
+  <div *ngIf="loading">Загрузка...</div>
+
+  <div class="message" *ngIf="message">
+    <img src="/assets/icons/admin_success.svg" alt="ok" width="18" />
+    {{ message }}
+  </div>
+
+  <div class="error" *ngIf="error">
+    <img src="/assets/icons/admin_warn.svg" alt="warn" width="18" />
+    {{ error }}
+  </div>
+
+  <!-- Orders -->
+  <div class="config-block">
+    <h2>Для клиентов</h2>
+    <label>Email:</label>
+    <input [(ngModel)]="config.orders.user" placeholder="orders@company.com" />
+    <label>Пароль:</label>
+    <div class="pass-container">
+      <input [type]="showOrdersPass ? 'text' : 'password'" [(ngModel)]="config.orders.pass" />
+      <button type="button" (click)="showOrdersPass = !showOrdersPass" class="icon-button">
+        <img
+          *ngIf="!showOrdersPass"
+          src="/assets/icons/eye-closed.svg"
+          alt="Показать пароль"
+          width="18"
+          height="18"
+        />
+        <img
+          *ngIf="showOrdersPass"
+          src="/assets/icons/eye.svg"
+          alt="Скрыть пароль"
+          width="18"
+          height="18"
+        />
+      </button>
+    </div>
+
+    <button class="upload-button add-margin" (click)="save('orders')">
+      Сохранить <img src="/assets/icons/save.svg" alt="save" width="16" />
+    </button>
+  </div>
+
+  <!-- Vacancy -->
+  <div class="config-block">
+    <h2>Для вакансий</h2>
+    <label>Email:</label>
+    <input [(ngModel)]="config.vacancy.user" placeholder="jobs@company.com" />
+    <label>Пароль:</label>
+    <div class="pass-container">
+      <input [type]="showVacancyPass ? 'text' : 'password'" [(ngModel)]="config.vacancy.pass" />
+      <button type="button" (click)="showVacancyPass = !showVacancyPass" class="icon-button">
+        <img
+          *ngIf="!showVacancyPass"
+          src="/assets/icons/eye-closed.svg"
+          alt="Показать пароль"
+          width="18"
+          height="18"
+        />
+        <img
+          *ngIf="showVacancyPass"
+          src="/assets/icons/eye.svg"
+          alt="Скрыть пароль"
+          width="18"
+          height="18"
+        />
+      </button>
+    </div>
+    <button class="upload-button add-margin" (click)="save('vacancy')">
+      Сохранить <img src="/assets/icons/save.svg" alt="save" width="16" />
+    </button>
+  </div>
+</div>
