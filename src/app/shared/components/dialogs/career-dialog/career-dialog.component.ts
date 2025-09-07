@@ -2,24 +2,15 @@ import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CommonModule, NgIf } from '@angular/common';
 import { CareerModalService } from '../../../../services/career-modal.service';
-import {
-  trigger,
-  transition,
-  style,
-  animate,
-} from '@angular/animations';
+import { trigger, transition, style, animate } from '@angular/animations';
 import { RouterLink } from '@angular/router';
 import { MailService } from '../../../../services/mail.service';
 import { FormsModule } from '@angular/forms';
+import { NotificationService } from '../../../../services/notification.service';
 
 @Component({
   selector: 'app-career-dialog',
-  imports: [
-    RouterLink,
-    FormsModule,
-    CommonModule,
-    NgIf
-  ],
+  imports: [RouterLink, FormsModule, CommonModule, NgIf],
   templateUrl: './career-dialog.component.html',
   styleUrl: './career-dialog.component.css',
   animations: [
@@ -28,27 +19,30 @@ import { FormsModule } from '@angular/forms';
         style({ opacity: 0 }),
         animate('200ms ease-in', style({ opacity: 1 })),
       ]),
-      transition(':leave', [
-        animate('200ms ease-out', style({ opacity: 0 })),
-      ]),
-    ])
-  ]
+      transition(':leave', [animate('200ms ease-out', style({ opacity: 0 }))]),
+    ]),
+  ],
 })
 export class CareerDialogComponent {
   visible: boolean = false;
-  name = '';
-  phone = '';
-  email = '';
-  callTime = 'soon';
-  accepted = false;
+  name: string = '';
+  phone: string = '';
+  email: string = '';
+  callTime: string = 'soon';
+  accepted: boolean = false;
   selectedFile: File | null = null;
+  readonly MAX_FILE_SIZE = 5 * 1024 * 1024;
 
   private visibilitySub?: Subscription;
 
-  constructor(private dialogService: CareerModalService, private mailService: MailService) {}
+  constructor(
+    private dialogService: CareerModalService,
+    private notificationService: NotificationService,
+    private mailService: MailService
+  ) {}
 
   ngOnInit() {
-    this.visibilitySub = this.dialogService.visibility$.subscribe(value => {
+    this.visibilitySub = this.dialogService.visibility$.subscribe((value) => {
       this.visible = value;
       document.body.style.overflow = value ? 'hidden' : '';
     });
@@ -66,27 +60,82 @@ export class CareerDialogComponent {
   onFileSelected(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files?.length) {
-      this.selectedFile = input.files[0];
+      const file = input.files[0];
+      if (file.size > this.MAX_FILE_SIZE) {
+        this.notificationService.show({
+          message: 'Файл слишком большой!',
+          text: 'Максимальный размер файла 5 МБ',
+          type: 'warn',
+        });
+        this.selectedFile = null;
+        // При необходимости сбросьте input
+        input.value = '';
+        return;
+      }
+      this.selectedFile = file;
     }
   }
 
   submit() {
-    if (!this.name || !this.phone || !this.email || !this.accepted) {
-      alert('Пожалуйста, заполните все поля и подтвердите согласие.');
+    if (!this.name || !this.phone || !this.email) {
+      this.notificationService.show({
+        message: 'Заполните все поля!',
+        text: '',
+        type: 'warn',
+      });
       return;
     }
+
+    if (!this.accepted) {
+      this.notificationService.show({
+        message: 'Подтвердите согласие',
+        text: 'на обработку перс данных',
+        type: 'warn',
+      });
+      return;
+    }
+
+    if (!this.selectedFile) {
+      this.notificationService.show({
+        message: 'Пожалуйста, прикрепите файл!',
+        text: '',
+        type: 'warn',
+      });
+      return;
+    }
+
+    if (this.selectedFile.size > this.MAX_FILE_SIZE) {
+      this.notificationService.show({
+        message: 'Файл слишком большой!',
+        text: 'Максимальный размер файла 5 МБ',
+        type: 'warn',
+      });
+      return;
+    }
+
+    const callTimeMap: Record<string, string> = {
+      soon: 'в ближайшее время',
+      duringTheDay: 'в течение дня',
+      onlyPost: 'предпочитает почту',
+    };
+    const callTimeLabel = callTimeMap[this.callTime] || this.callTime;
 
     const formData = new FormData();
     formData.append('name', this.name);
     formData.append('email', this.email);
-    formData.append('message', `Телефон: ${this.phone}\nПозвонить: ${this.callTime}\nПочта: ${this.email}`);
-    if (this.selectedFile) {
-      formData.append('attachment', this.selectedFile);
-    }
+    formData.append(
+      'message',
+      `Телефон: ${this.phone}\nПочта: ${this.email}\nКогда перезвонить: ${callTimeLabel}`
+    );
+    formData.append('attachment', this.selectedFile);
 
     this.mailService.sendEmailWFile(formData).subscribe({
       next: () => {
-        alert('Заявка отправлена!');
+        this.notificationService.show({
+          message: 'Заявка отправлена!',
+          text: 'Ожидайте звонка',
+          type: 'success',
+        });
         this.name = '';
         this.phone = '';
         this.email = '';
@@ -95,7 +144,12 @@ export class CareerDialogComponent {
         this.selectedFile = null;
         this.onClose();
       },
-      error: () => alert('Ошибка при отправке')
+      error: () =>
+        this.notificationService.show({
+          message: 'Ошибка отправки!',
+          text: 'Попробуйте снова',
+          type: 'error',
+        }),
     });
   }
 }
