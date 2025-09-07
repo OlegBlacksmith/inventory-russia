@@ -1,0 +1,41 @@
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  max-width: 320px;
+  word-break: break-word;
+}
+
+.text-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text{
+  font-size: 14px;
+  margin-top: 5px;
+  font-weight: 400;
+}
+
+.success {
+  background-color: #486828;
+}
+
+.error {
+  background-color: #d73d32;
+}
+
+.warn {
+  background-color: #e4833d;
+}
+
+.info {
+  background-color: #81A6DE;
+}

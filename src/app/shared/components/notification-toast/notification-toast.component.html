@@ -1,0 +1,8 @@
+<ng-container *ngIf="visible">
+  <div class="notification" [ngClass]="type">
+    <div class="text-container">
+      <p>{{ message }}</p>
+      <p *ngIf="text" class="text">{{ text }}</p>
+    </div>
+  </div>
+</ng-container>
