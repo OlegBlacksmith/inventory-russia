@@ -12,7 +12,6 @@ export class OrderModalService {
 
   show() {
     this.dialogVisible$.next(true);
-
   }
 
   hide() {
