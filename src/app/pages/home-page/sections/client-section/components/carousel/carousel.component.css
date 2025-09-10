@@ -18,6 +18,11 @@
   margin: 10px;
 }
 
+.image-wrapper span {
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
 .carousel-image {
   max-width: 160px;
   height: auto;

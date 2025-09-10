@@ -1,7 +1,7 @@
-import { Component, inject, Input, OnDestroy, OnInit } from '@angular/core';
+import {Component, inject, Input, OnDestroy, OnInit, OnChanges, SimpleChanges} from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
 import { ScreenService } from '../../../../../../services/screen.service';
-import { combineLatest, map, Subject, takeUntil } from 'rxjs';
+import { combineLatest, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-carousel',
@@ -11,8 +11,9 @@ import { combineLatest, map, Subject, takeUntil } from 'rxjs';
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.css'
 })
-export class CarouselComponent implements OnInit, OnDestroy {
+export class CarouselComponent implements OnInit, OnDestroy, OnChanges {
   @Input() partners: string[] = [];
+  renderedPartners: string[] = [];
   numVisible = 5;
 
   private destroy$ = new Subject<void>();
@@ -33,6 +34,16 @@ export class CarouselComponent implements OnInit, OnDestroy {
           this.numVisible = 5;
         }
       });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['partners'] && changes['partners'].currentValue) {
+      const modifiedPartners = [...this.partners];
+      for (let i = 2; i < modifiedPartners.length; i += 3) {
+        modifiedPartners.splice(i, 0, '');
+      }
+      this.renderedPartners = modifiedPartners;
+    }
   }
 
   ngOnDestroy() {
