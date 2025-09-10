@@ -2,6 +2,7 @@ import {Component, inject, Input, OnDestroy, OnInit, OnChanges, SimpleChanges} f
 import { CarouselModule } from 'primeng/carousel';
 import { ScreenService } from '../../../../../../services/screen.service';
 import { combineLatest, Subject, takeUntil } from 'rxjs';
+import { OrderModalService } from '../../../../../../services/order-modal.service';
 
 @Component({
   selector: 'app-carousel',
@@ -15,6 +16,8 @@ export class CarouselComponent implements OnInit, OnDestroy, OnChanges {
   @Input() partners: string[] = [];
   renderedPartners: string[] = [];
   numVisible = 5;
+
+  constructor(private orderModalService: OrderModalService){};
 
   private destroy$ = new Subject<void>();
   private screenService = inject(ScreenService);
@@ -49,5 +52,9 @@ export class CarouselComponent implements OnInit, OnDestroy, OnChanges {
   ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
+  }
+
+  callOrderModal(): void{
+    this.orderModalService.show();
   }
 }
