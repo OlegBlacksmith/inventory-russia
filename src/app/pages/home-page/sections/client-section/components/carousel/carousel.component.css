@@ -10,24 +10,43 @@
 .image-wrapper {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   padding: 1rem;
   border-radius: 10px;
   height: 170px;
   max-width: 254px;
   margin: 10px;
+  gap: 13px;
 }
 
-.image-wrapper span {
-  font-family: 'Inter', sans-serif;
-  text-align: center;
+.s-text-img{
+  height: 85px;
+  filter: drop-shadow(-2px 3px 1px rgba(0, 0, 0, 0.3));
 }
 
 .carousel-image {
   max-width: 160px;
   height: auto;
   object-fit: cover;
-  filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(-2px 3px 1px #0000004d);
+}
+
+.s-button{
+  border-radius: 5px;
+  background-color: #AB8858;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 19px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.s-button:hover{
+  background-color: #8b6f48;
 }
 
 @media (min-width: 375px) and (max-width: 767px){
@@ -39,6 +58,21 @@
     padding: 1rem;
     overflow: hidden;
     z-index: 2;
+  }
+
+  .image-wrapper{
+    gap: 5px;
+  }
+
+  .s-text-img{
+    height: 35px;
+  }
+
+  .s-button{
+    font-size: 7px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 3px;
   }
 
   .image-wrapper {
@@ -109,6 +143,17 @@
     height: 130px;
     max-width: 90%;
     margin: 5px;
+  }
+
+  .s-button{
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+
+  .s-text-img{
+    height: 65px;
   }
 
   .carousel-image {
