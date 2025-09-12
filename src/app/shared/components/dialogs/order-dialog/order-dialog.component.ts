@@ -3,7 +3,7 @@ import { OrderModalService } from '../../../../services/order-modal.service';
 import { CommonModule, NgIf } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { trigger, transition, style, animate } from '@angular/animations';
-import { RouterLink } from '@angular/router';
+import { NavigationStart, Router, RouterLink } from '@angular/router';
 import {
   FormBuilder,
   FormGroup,
@@ -34,12 +34,14 @@ export class OrderDialogComponent implements OnInit, OnDestroy {
   visible = false;
   form: FormGroup;
   private visibilitySub?: Subscription;
+  private routerSub?: Subscription;
 
   constructor(
     private dialogService: OrderModalService,
     private fb: FormBuilder,
     private mailService: MailService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private router: Router
   ) {
     this.form = this.fb.group({
       name: ['', Validators.required],
@@ -55,6 +57,12 @@ export class OrderDialogComponent implements OnInit, OnDestroy {
       this.visible = value;
       document.body.style.overflow = value ? 'hidden' : '';
     });
+
+    this.routerSub = this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.onClose();
+      }
+    });
   }
 
   onClose() {
@@ -64,6 +72,7 @@ export class OrderDialogComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     document.body.style.overflow = '';
     this.visibilitySub?.unsubscribe();
+    this.routerSub?.unsubscribe();
   }
 
   onSubmit() {

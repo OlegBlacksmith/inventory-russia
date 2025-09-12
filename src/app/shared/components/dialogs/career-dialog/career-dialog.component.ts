@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 import { CommonModule, NgIf } from '@angular/common';
 import { CareerModalService } from '../../../../services/career-modal.service';
 import { trigger, transition, style, animate } from '@angular/animations';
-import { RouterLink } from '@angular/router';
+import { NavigationStart, Router, RouterLink } from '@angular/router';
 import { MailService } from '../../../../services/mail.service';
 import { FormsModule } from '@angular/forms';
 import { NotificationService } from '../../../../services/notification.service';
@@ -32,13 +32,15 @@ export class CareerDialogComponent {
   accepted: boolean = false;
   selectedFile: File | null = null;
   readonly MAX_FILE_SIZE = 5 * 1024 * 1024;
+  private routerSub?: Subscription;
 
   private visibilitySub?: Subscription;
 
   constructor(
     private dialogService: CareerModalService,
     private notificationService: NotificationService,
-    private mailService: MailService
+    private mailService: MailService,
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -46,11 +48,18 @@ export class CareerDialogComponent {
       this.visible = value;
       document.body.style.overflow = value ? 'hidden' : '';
     });
+
+    this.routerSub = this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.onClose();
+      }
+    });
   }
 
   ngOnDestroy() {
     document.body.style.overflow = '';
     this.visibilitySub?.unsubscribe();
+    this.routerSub?.unsubscribe();
   }
 
   onClose() {
